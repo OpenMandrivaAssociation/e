@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.037
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 	0
 %define libname %mklibname %{name} %{major}
@@ -13,7 +13,6 @@ Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
-Source1:	e17-menu-method.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
 Buildrequires: 	ecore-devel evas-devel edje edje-devel
@@ -50,9 +49,6 @@ E17 development headers and development libraries.
 %install
 rm -fr $RPM_BUILD_ROOT
 %makeinstall
-mkdir -p %buildroot/%{_sysconfdir}/menu-methods
-bzcat %{SOURCE1} > %buildroot/%{_sysconfdir}/menu-methods/e17
-chmod 755 %buildroot/%{_sysconfdir}/menu-methods/e17
 %multiarch_binaries %buildroot/%{_bindir}/enlightenment-config
 
 %find_lang enlightenment
@@ -87,7 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %_libdir/enlightenment/modules/*/*/module.la
 %config %_sysconfdir/X11/wmsession.d/23E17
 %config(noreplace) %_sysconfdir/enlightenment/sysactions.conf
-%_sysconfdir/menu-methods/e17
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
