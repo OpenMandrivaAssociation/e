@@ -17,7 +17,7 @@ Source1:	e17-menu-method.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
 Buildrequires: 	ecore-devel evas-devel edje edje-devel
-Buildrequires: 	eet-devel embryo-devel
+Buildrequires: 	eet-devel embryo-devel embryo
 Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
 Requires:	ewl edb
