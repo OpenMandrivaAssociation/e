@@ -1,8 +1,7 @@
 %define name 	e
-%define version 0.16.999.023
-%define release 0.%{cvsrel}.3mdk
-
-%define cvsrel 20060323
+%define oname	enlightenment
+%define version 0.16.999.037
+%define release %mkrel 1
 
 %define major 	0
 %define libname %mklibname %{name} %{major}
@@ -13,7 +12,7 @@ Version: 	%version
 Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
-Source: 	%{name}-%{cvsrel}.tar.bz2
+Source: 	%{oname}-%{version}.tar.bz2
 Source1:	e17-menu-method.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
@@ -31,13 +30,6 @@ another window manager - it's an ambitious and innovative project that aims
 to drive the development of graphical applications industry-wide for several
 years to come.
 
-%package -n %{libname}
-Summary: Enlightement libraries
-Group: System/Libraries
-
-%description -n %{libname}
-Dynamic libraries for Enlightenment window manager
-
 %package -n %{libname}-devel
 Summary: Enlightenment library headers and development libraries
 Group: System/Libraries
@@ -49,10 +41,9 @@ Provides: %{name}-devel = %{version}-%{release}
 E17 development headers and development libraries.
 
 %prep
-%setup -n e -q
+%setup -n %{oname}-%{version} -q 
 
 %build
-./autogen.sh
 %configure2_5x --disable-valgrind
 %make
 
@@ -81,9 +72,6 @@ EOF
 %postun
 %make_session
 
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -95,19 +83,16 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/enlightenment
 %_datadir/xsessions/*
 %_libdir/enlightenment
+%exclude %_libdir/enlightenment/modules/*/*/module.a
+%exclude %_libdir/enlightenment/modules/*/*/module.la
 %config %_sysconfdir/X11/wmsession.d/23E17
+%config(noreplace) %_sysconfdir/enlightenment/sysactions.conf
 %_sysconfdir/menu-methods/e17
-
-%files -n %{libname}
-%defattr(-,root,root)
-%_libdir/*.so.*
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
 %multiarch %{multiarch_bindir}/enlightenment-config
+%_libdir/enlightenment/modules/*/*/module.a
+%_libdir/enlightenment/modules/*/*/module.la
 %_bindir/enlightenment-config
-%_libdir/*.a
-%_libdir/*.la
-%_libdir/*.so
 %_includedir/enlightenment
-%_includedir/*.h
