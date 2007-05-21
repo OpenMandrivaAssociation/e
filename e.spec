@@ -15,8 +15,9 @@ Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
-Buildrequires: 	ecore-devel evas-devel edje edje-devel
-Buildrequires: 	eet-devel embryo-devel embryo
+Buildrequires: 	ecore-devel >= 0.9.9, evas-devel >= 0.9.9.038, edje, edje-devel
+Buildrequires: 	eet-devel >= 0.9.10.038, embryo-devel, embryo
+Buildrequires:  efreet-devel >= 0.0.3.002
 Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
 Requires:	ewl edb
