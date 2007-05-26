@@ -1,5 +1,5 @@
 %define name 	e
-%define name	enlightenment
+%define oname	enlightenment
 %define version 0.16.999.038
 %define release %mkrel 3
 
