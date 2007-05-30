@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.038
-%define release %mkrel 4
+%define release %mkrel 5
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -22,6 +22,7 @@ Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
 Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.007
 Requires:	edje >= 0.5.0.038, evas >= 0.9.9.038
+provides:	e = %version-%release
 
 %description
 E17 is a next generation window manager for UNIX operating systems. Based on
@@ -34,7 +35,7 @@ years to come.
 Summary: Enlightenment library headers and development libraries
 Group: System/Libraries
 #Requires: %{libname} = %{version}
-Provides: lib%{name}-devel = %{version}-%{release}
+Provides: %{libname}-devel = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %{libname}-devel
