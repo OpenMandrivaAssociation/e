@@ -17,7 +17,7 @@ BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
 Buildrequires:  ecore-devel >= 0.9.9, evas-devel >= 0.9.9.038, edje-devel >= 0.5.0.038
 Buildrequires:  eet-devel >= 0.9.10.038, embryo-devel >= 0.9.1.038, embryo >= 0.9.1.038
-Buildrequires:  efreet-devel >= 0.0.3.002
+Buildrequires:  efreet-devel >= 0.0.3.002, edje >= 0.5.0.038
 Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
 Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.007
