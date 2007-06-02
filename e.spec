@@ -24,6 +24,7 @@ BuildRequires:	gettext-devel
 Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.007
 Requires:	edje >= 0.5.0.038, evas >= 0.9.9.038
 provides:	e = %version-%release
+Buildrequires:	pam-devel
 
 %description
 E17 is a next generation window manager for UNIX operating systems. Based on
@@ -77,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f enlightenment.lang
 %defattr(-,root,root)
-%doc AUTHORS README COPYING
+%doc AUTHORS README COPYING doc/*
 %_bindir/enlightenment
 %_bindir/enlightenment_*
 %_datadir/enlightenment
