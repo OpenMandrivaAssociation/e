@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.038
-%define release %mkrel 7
+%define release %mkrel 8
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -13,7 +13,6 @@ Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
-Patch0:		e_order.patch.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
 Buildrequires:  ecore-devel >= 0.9.9, evas-devel >= 0.9.9.038, edje-devel >= 0.5.0.038
@@ -45,7 +44,6 @@ E17 development headers and development libraries.
 
 %prep
 %setup -n %{oname}-%{version} -q 
-%patch0 -p0
 
 %build
 %configure2_5x --enable-files --disable-valgrind
