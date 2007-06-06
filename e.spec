@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.038
-%define release %mkrel 8
+%define release %mkrel 9
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -15,13 +15,13 @@ Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
-Buildrequires:  ecore-devel >= 0.9.9, evas-devel >= 0.9.9.038, edje-devel >= 0.5.0.038
+Buildrequires:  ecore-devel >= 0.9.9.038, evas-devel >= 0.9.9.038, edje-devel >= 0.5.0.038
 Buildrequires:  eet-devel >= 0.9.10.038, embryo-devel >= 0.9.1.038, embryo >= 0.9.1.038
 Buildrequires:  efreet-devel >= 0.0.3.002, edje >= 0.5.0.038
 Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
-Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.007
-Requires:	edje >= 0.5.0.038, evas >= 0.9.9.038
+Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.007, epeg >= 0.9.0.008, efreet >= 0.0.3.002
+Requires:	edje >= 0.5.0.038, evas >= 0.9.9.038, ecore >= 0.9.9.038, embryo >= 0.9.1.038
 provides:	e = %version-%release
 Buildrequires:	pam-devel
 
