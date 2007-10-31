@@ -15,13 +15,13 @@ Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
-Buildrequires:  ecore-devel >= 0.9.9.041, evas-devel >= 0.9.9.041, edje-devel >= 0.5.0.038
+Buildrequires:  ecore-devel >= 0.9.9.041, evas-devel >= 0.9.9.041, edje-devel >= 0.5.0.041
 Buildrequires:  eet-devel >= 0.9.10.041, embryo-devel >= 0.9.1.041, embryo >= 0.9.1.041
-Buildrequires:  efreet-devel >= 0.0.3.006, edje >= 0.5.0.038
+Buildrequires:  efreet-devel >= 0.9.0.011, edje >= 0.5.0.041
 Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
-Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.008, epeg >= 0.9.0.0011, efreet >= 0.0.3.006
-Requires:	edje >= 0.5.0.038, evas >= 0.9.9.041, ecore >= 0.9.9.041, embryo >= 0.9.1.041
+Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.008, epeg >= 0.9.0.0011, efreet >= 0.9.0.011
+Requires:	evas >= 0.9.9.041, ecore >= 0.9.9.041, embryo >= 0.9.1.041
 provides:	e = %version-%release
 Buildrequires:	pam-devel
 
