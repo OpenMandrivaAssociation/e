@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.041
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -20,7 +20,7 @@ Buildrequires:  eet-devel >= 0.9.10.041, embryo-devel >= 0.9.1.041, embryo >= 0.
 Buildrequires:  efreet-devel >= 0.9.0.011, edje >= 0.5.0.041
 Buildrequires:	multiarch-utils
 BuildRequires:	gettext-devel
-Requires:	ewl >= 0.5.1.008, edb >= 1.0.5.008, epeg >= 0.9.0.0011, efreet >= 0.9.0.011
+Requires:	ewl >= 0.5.1.011, edb >= 1.0.5.008, epeg >= 0.9.0.0011, efreet >= 0.9.0.011
 Requires:	evas >= 0.9.9.041, ecore >= 0.9.9.041, embryo >= 0.9.1.041
 provides:	e = %version-%release
 Buildrequires:	pam-devel
