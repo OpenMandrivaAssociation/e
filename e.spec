@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.041
-%define release %mkrel 2
+%define version 0.16.999.042
+%define release %mkrel 1
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -14,16 +14,18 @@ License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
-URL: 		http://www.get-e.org/
-Buildrequires:  ecore-devel >= 0.9.9.041, evas-devel >= 0.9.9.041, edje-devel >= 0.5.0.041
-Buildrequires:  eet-devel >= 0.9.10.041, embryo-devel >= 0.9.1.041, embryo >= 0.9.1.041
-Buildrequires:  efreet-devel >= 0.9.0.011, edje >= 0.5.0.041
-Buildrequires:	multiarch-utils
+URL: 		http://www.enlightenment.org/
+Buildrequires:  ecore-devel
+BuildRequires:	evas-devel
+BuildRequires:	edje-devel, edje
+Buildrequires:  embryo-devel, embryo
+Buildrequires:  efreet-devel
 BuildRequires:	gettext-devel
-Requires:	ewl >= 0.5.1.011, edb >= 1.0.5.008, epeg >= 0.9.0.011, efreet >= 0.9.0.011
-Requires:	evas >= 0.9.9.041, ecore >= 0.9.9.041, embryo >= 0.9.1.041
-provides:	e = %version-%release
 Buildrequires:	pam-devel
+BuildRequires:	multiarch-utils
+Requires:	eet, edb, ecore, efreet, embryo, edje, e_dbus
+Requires:	etk
+Requires:	emotion, epeg, epsilon, esmart, ewl
 
 %description
 E17 is a next generation window manager for UNIX operating systems. Based on
@@ -35,7 +37,7 @@ years to come.
 %package -n %{libname}-devel
 Summary: Enlightenment library headers and development libraries
 Group: System/Libraries
-#Requires: %{libname} = %{version}
+Requires: %{libname} = %{version}
 Provides: %{libname}-devel = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
@@ -53,23 +55,22 @@ E17 development headers and development libraries.
 rm -fr $RPM_BUILD_ROOT
 %makeinstall
 %multiarch_binaries %buildroot/%{_bindir}/enlightenment-config
-
 %find_lang enlightenment
 
 # display manager entry
-mkdir -p %buildroot/%{_sysconfdir}/X11/wmsession.d
-cat << EOF > $RPM_BUILD_ROOT/%{_sysconfdir}/X11/wmsession.d/23E17
-NAME=E17
-ICON=
-EXEC=/usr/bin/enlightenment_start
-SCRIPT:
-exec /usr/bin/enlightenment_start
-EOF
+#mkdir -p %buildroot/%{_sysconfdir}/X11/wmsession.d
+#cat << EOF > $RPM_BUILD_ROOT/%{_sysconfdir}/X11/wmsession.d/23E17
+#NAME=E17
+#ICON=
+#EXEC=/usr/bin/enlightenment_start
+#SCRIPT:
+#exec /usr/bin/enlightenment_start
+#EOF
 
-%post
-%make_session
-%postun
-%make_session
+#%post
+#%make_session
+#%postun
+#%make_session
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -84,14 +85,14 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/enlightenment
 %exclude %_libdir/enlightenment/modules/*/*/module.a
 %exclude %_libdir/enlightenment/modules/*/*/module.la
-%config %_sysconfdir/X11/wmsession.d/23E17
+#%config %_sysconfdir/X11/wmsession.d/23E17
 %config(noreplace) %_sysconfdir/enlightenment/sysactions.conf
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
+%{_bindir}/enlightenment-config
 %multiarch %{multiarch_bindir}/enlightenment-config
 %_libdir/enlightenment/modules/*/*/module.a
 %_libdir/enlightenment/modules/*/*/module.la
-%_bindir/enlightenment-config
 %_includedir/enlightenment
 
