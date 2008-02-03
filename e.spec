@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.042
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -37,8 +37,6 @@ years to come.
 %package -n %{libname}-devel
 Summary: Enlightenment library headers and development libraries
 Group: System/Libraries
-Requires: %{libname} = %{version}
-Provides: %{libname}-devel = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %{libname}-devel
