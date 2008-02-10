@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.042
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -20,6 +20,7 @@ BuildRequires:	evas-devel
 BuildRequires:	edje-devel, edje
 Buildrequires:  embryo-devel, embryo
 Buildrequires:  efreet-devel
+BuildRequires:	e_dbus-devel
 BuildRequires:	gettext-devel
 Buildrequires:	pam-devel
 BuildRequires:	multiarch-utils
@@ -44,6 +45,7 @@ E17 development headers and development libraries.
 
 %prep
 %setup -n %{oname}-%{version} -q 
+perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
 
 %build
 %configure2_5x --enable-files --disable-valgrind
@@ -56,19 +58,19 @@ rm -fr $RPM_BUILD_ROOT
 %find_lang enlightenment
 
 # display manager entry
-#mkdir -p %buildroot/%{_sysconfdir}/X11/wmsession.d
-#cat << EOF > $RPM_BUILD_ROOT/%{_sysconfdir}/X11/wmsession.d/23E17
-#NAME=E17
-#ICON=
-#EXEC=/usr/bin/enlightenment_start
-#SCRIPT:
-#exec /usr/bin/enlightenment_start
-#EOF
+mkdir -p %buildroot/%{_sysconfdir}/X11/wmsession.d
+cat << EOF > $RPM_BUILD_ROOT/%{_sysconfdir}/X11/wmsession.d/23E17
+NAME=E17
+ICON=
+EXEC=/usr/bin/enlightenment_start
+SCRIPT:
+exec /usr/bin/enlightenment_start
+EOF
 
-#%post
-#%make_session
-#%postun
-#%make_session
+%post
+%make_session
+%postun
+%make_session
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/enlightenment
 %exclude %_libdir/enlightenment/modules/*/*/module.a
 %exclude %_libdir/enlightenment/modules/*/*/module.la
-#%config %_sysconfdir/X11/wmsession.d/23E17
+%config %_sysconfdir/X11/wmsession.d/23E17
 %config(noreplace) %_sysconfdir/enlightenment/sysactions.conf
 
 %files -n %{libname}-devel
