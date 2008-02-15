@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.042
-%define release %mkrel 3
+%define release %mkrel 4
 
 %define major 0
 %define libname %mklibname %{name} %{major}
@@ -15,18 +15,18 @@ Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
-Buildrequires:  ecore-devel
-BuildRequires:	evas-devel
-BuildRequires:	edje-devel, edje
-Buildrequires:  embryo-devel, embryo
-Buildrequires:  efreet-devel
-BuildRequires:	e_dbus-devel
+Buildrequires:  ecore-devel >= 0.9.9.042 
+BuildRequires:	evas-devel >= 0.9.9.042
+BuildRequires:	edje-devel >= 0.5.0.042, edje >= 0.5.0.042
+Buildrequires:  embryo-devel >= 0.9.1.042, embryo >= 0.9.1.042
+Buildrequires:  efreet-devel >= 0.0.3.042
+BuildRequires:	e_dbus-devel >= 0.1.0.042
 BuildRequires:	gettext-devel
 Buildrequires:	pam-devel
 BuildRequires:	multiarch-utils
-Requires:	eet, edb, ecore, efreet, embryo, edje, e_dbus
-Requires:	etk
-Requires:	emotion, epeg, epsilon, esmart, ewl
+Requires:	eet >= 0.9.10.042 , edb >= 1.0.5.042, ecore >= 0.9.9.042, efreet >= 0.0.3.042, embryo >= 0.9.1.042, edje >= 0.5.0.042, e_dbus >= 0.1.0.042
+Requires:	etk >= 0.1.0.042
+Requires:	emotion >= 0.1.0.042, epeg >= 0.9.1.042, epsilon >= 0.3.0.012, esmart >= 0.9.0.042, ewl >= 0.5.2.042
 
 %description
 E17 is a next generation window manager for UNIX operating systems. Based on
