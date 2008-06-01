@@ -1,10 +1,7 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.042
-%define release %mkrel 4
-
-%define major 0
-%define libname %mklibname %{name} %{major}
+%define version 0.16.999.043
+%define release %mkrel 1
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -35,12 +32,12 @@ another window manager - it's an ambitious and innovative project that aims
 to drive the development of graphical applications industry-wide for several
 years to come.
 
-%package -n %{libname}-devel
+%package devel
 Summary: Enlightenment library headers and development libraries
 Group: System/Libraries
-Provides: %{name}-devel = %{version}-%{release}
+Obsoletes: %mklibname e 0 -d
 
-%description -n %{libname}-devel
+%description devel
 E17 development headers and development libraries.
 
 %prep
@@ -53,7 +50,7 @@ perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
 
 %install
 rm -fr $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 %multiarch_binaries %buildroot/%{_bindir}/enlightenment-config
 %find_lang enlightenment
 
@@ -88,11 +85,11 @@ rm -rf $RPM_BUILD_ROOT
 %config %_sysconfdir/X11/wmsession.d/23E17
 %config(noreplace) %_sysconfdir/enlightenment/sysactions.conf
 
-%files -n %{libname}-devel
+%files devel
 %defattr(-,root,root)
 %{_bindir}/enlightenment-config
+%{_libdir}/pkgconfig/enlightenment.pc
 %multiarch %{multiarch_bindir}/enlightenment-config
 %_libdir/enlightenment/modules/*/*/module.a
 %_libdir/enlightenment/modules/*/*/module.la
 %_includedir/enlightenment
-
