@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.043
-%define release %mkrel 2
+%define version 0.16.999.050
+%define release %mkrel 1
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -12,16 +12,16 @@ Group: 		Graphical desktop/Enlightenment
 Source: 	%{oname}-%{version}.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
-Buildrequires:  ecore-devel >= 0.9.9.042 
-BuildRequires:	evas-devel >= 0.9.9.042
-BuildRequires:	edje-devel >= 0.5.0.042, edje >= 0.5.0.042
-Buildrequires:  embryo-devel >= 0.9.1.042, embryo >= 0.9.1.042
-Buildrequires:  efreet-devel >= 0.0.3.042
-BuildRequires:	e_dbus-devel >= 0.1.0.042
+Buildrequires:  ecore-devel >= 0.9.9.050 
+BuildRequires:	evas-devel >= 0.9.9.050
+BuildRequires:	edje-devel >= 0.5.0.050, edje >= 0.5.0.050
+Buildrequires:  embryo-devel >= 0.9.9.050, embryo >= 0.9.9.050
+Buildrequires:  efreet-devel >= 0.5.0.050
+BuildRequires:	e_dbus-devel >= 0.5.0.050
 BuildRequires:	gettext-devel
 Buildrequires:	pam-devel
 BuildRequires:	multiarch-utils
-Requires:	eet >= 0.9.10.042 , edb >= 1.0.5.042, ecore >= 0.9.9.042, efreet >= 0.0.3.042, embryo >= 0.9.1.042, edje >= 0.5.0.042, e_dbus >= 0.1.0.042
+Requires:	eet >= 0.9.10.050 , edb >= 1.0.5.050, ecore >= 0.9.9.050, efreet >= 0.5.0.050, embryo >= 0.9.9.050, edje >= 0.5.0.050, e_dbus >= 0.5.0.050
 Requires:	etk >= 0.1.0.042
 Requires:	emotion >= 0.1.0.042, epeg >= 0.9.1.042, epsilon >= 0.3.0.012, esmart >= 0.9.0.042, ewl >= 0.5.2.042
 
