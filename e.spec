@@ -18,8 +18,10 @@ BuildRequires:	edje-devel >= 0.5.0.050, edje >= 0.5.0.050
 Buildrequires:  embryo-devel >= 0.9.9.050, embryo >= 0.9.9.050
 Buildrequires:  efreet-devel >= 0.5.0.050
 BuildRequires:	e_dbus-devel >= 0.5.0.050
+BuildRequires:	eet >= 1.1.0
 BuildRequires:	gettext-devel
-Buildrequires:	pam-devel
+BuildRequires:	pam-devel
+BuildRequires:	libalsa-devel
 BuildRequires:	multiarch-utils
 Requires:	eet >= 0.9.10.050 , edb >= 1.0.5.050, ecore >= 0.9.9.050, efreet >= 0.5.0.050, embryo >= 0.9.9.050, edje >= 0.5.0.050, e_dbus >= 0.5.0.050
 Requires:	etk >= 0.1.0.042
