@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.050
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -26,6 +26,8 @@ BuildRequires:	multiarch-utils
 Requires:	eet >= 0.9.10.050 , edb >= 1.0.5.042, ecore >= 0.9.9.050, efreet >= 0.5.0.050, embryo >= 0.9.9.050, edje >= 0.5.0.050, e_dbus >= 0.5.0.050
 Requires:	etk >= 0.1.0.042
 Requires:	emotion >= 0.1.0.042, epeg >= 0.9.1.042, epsilon >= 0.3.0.012, esmart >= 0.9.0.042, ewl >= 0.5.2.042
+# mixer module have been merged into main from e_modules
+Conflicts:	e_modules < 1:0.0.1-0.20080306.2
 
 %description
 E17 is a next generation window manager for UNIX operating systems. Based on
