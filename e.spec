@@ -55,6 +55,8 @@ perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
 %install
 rm -fr $RPM_BUILD_ROOT
 %makeinstall_std
+#fake e-config
+touch %buildroot/%{_bindir}/enlightenment-config
 %multiarch_binaries %buildroot/%{_bindir}/enlightenment-config
 %find_lang enlightenment
 
