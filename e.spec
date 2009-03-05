@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.050
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -10,6 +10,9 @@ Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	http://download.enlightenment.org/snapshots/LATEST/%{oname}-%{version}.tar.bz2
+Source1:	mandriva.edj.bz2
+Patch0:         e17_sysactions.conf.patch.bz2
+Patch1:		e17_e_fwin.c.patch.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
 Buildrequires:  ecore-devel >= 0.9.9.050 
@@ -26,6 +29,7 @@ BuildRequires:	multiarch-utils
 Requires:	eet >= 1.1.0 , ecore >= 0.9.9.050, efreet >= 0.5.0.050, embryo >= 0.9.9.050, e_dbus >= 0.5.0.050
 Requires:	etk >= 0.1.0.042
 Requires:	emotion >= 0.1.0.042, epsilon >= 0.3.0.012, esmart >= 0.9.0.050, ewl >= 0.5.3.050
+Requires:	acpitool
 # mixer module have been merged into main from e_modules
 Conflicts:	e_modules < 1:0.0.1-0.20080306.2
 
@@ -47,9 +51,14 @@ E17 development headers and development libraries.
 %prep
 %setup -n %{oname}-%{version} -q 
 perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
+%patch0 -p1
+%patch1 -p1
 
 %build
+# add the Mandriva profil
 %configure2_5x --enable-files --disable-valgrind
+# default profil is the mandriva one
+
 %make
 
 %install
