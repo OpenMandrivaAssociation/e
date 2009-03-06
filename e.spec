@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.050
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -78,6 +78,9 @@ EXEC=/usr/bin/enlightenment_start
 SCRIPT:
 exec /usr/bin/enlightenment_start
 EOF
+
+cp -av %{SOURCE1} /%buildroot/%{_datadir}/enlightenment/data/backgrounds/
+bunzip2 -v /%buildroot/%{_datadir}/enlightenment/data/backgrounds/mandriva.edj.bz2
 
 %post
 %make_session
