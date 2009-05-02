@@ -11,8 +11,8 @@ License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	http://download.enlightenment.org/snapshots/LATEST/%{oname}-%{version}.tar.bz2
 Source1:	mandriva.edj.bz2
-Patch0:         e17_sysactions.conf.patch.bz2
-Patch1:		e17_e_fwin.c.patch.bz2
+Patch0:         e17_sysactions.conf.patch
+Patch1:		e17_e_fwin.c.patch
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
 Buildrequires:  ecore-devel >= 0.9.9.050 
