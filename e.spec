@@ -1,6 +1,6 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.061
+%define version 0.16.999.062
 %define release %mkrel 1
 
 Summary: 	Enlightenment DR 17 window manager
