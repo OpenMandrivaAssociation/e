@@ -1,6 +1,6 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.062
+%define version 0.16.999.063
 %define release %mkrel 1
 
 Summary: 	Enlightenment DR 17 window manager
@@ -15,12 +15,12 @@ Patch0:         e17_sysactions.conf.patch
 Patch1:		e17_e_fwin.c.patch
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
-Buildrequires:  ecore-devel >= 0.9.9.050 
-BuildRequires:	evas-devel >= 0.9.9.050
-BuildRequires:	edje-devel >= 0.9.9.050, edje >= 0.9.9.050
+Buildrequires:  ecore-devel >= 0.9.9.063
+BuildRequires:	evas-devel >= 0.9.9.063
+BuildRequires:	edje-devel >= 0.9.93.063, edje >= 0.9.93.063
 Buildrequires:  embryo-devel >= 0.9.9.050, embryo >= 0.9.9.050
-Buildrequires:  efreet-devel >= 0.5.0.050
-BuildRequires:	e_dbus-devel >= 0.5.0.050
+Buildrequires:  efreet-devel >= 0.5.0.063
+BuildRequires:	e_dbus-devel >= 0.5.0.063
 BuildRequires:	eet >= 1.1.0
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
