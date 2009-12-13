@@ -98,7 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/enlightenment
 %_datadir/xsessions/*
 %_libdir/enlightenment
-#%exclude %_libdir/enlightenment/modules/*/*/module.a
 %exclude %_libdir/enlightenment/modules/*/*/module.la
 %config %_sysconfdir/X11/wmsession.d/23E17
 %config(noreplace) %_sysconfdir/enlightenment/sysactions.conf
@@ -106,8 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(-,root,root)
 %{_bindir}/enlightenment-config
-%{_libdir}/pkgconfig/enlightenment.pc
+%{_libdir}/pkgconfig/*.pc
 %multiarch %{multiarch_bindir}/enlightenment-config
-#%_libdir/enlightenment/modules/*/*/module.a
 %_libdir/enlightenment/modules/*/*/module.la
 %_includedir/enlightenment
