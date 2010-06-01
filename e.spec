@@ -82,11 +82,6 @@ EOF
 cp -av %{SOURCE1} /%buildroot/%{_datadir}/enlightenment/data/backgrounds/
 bunzip2 -v /%buildroot/%{_datadir}/enlightenment/data/backgrounds/mandriva.edj.bz2
 
-%post
-%make_session
-%postun
-%make_session
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
