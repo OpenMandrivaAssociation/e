@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
 %define version 0.16.999.063
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -79,6 +79,16 @@ SCRIPT:
 exec /usr/bin/enlightenment_start
 EOF
 
+# We already have wmsession.d/23E17, so we can remove
+# xsessions/enlightenment.desktop. If we keep both files, we'll have both "E17"
+# and "Enlightenment" options in the Display Manager (GDM, Entrance), which is
+# not good.
+# Also, the wmsession.d file is used to generate
+# /etc/X11/dm/Sessions/23E17.desktop, which uses Xsession and consequently
+# consolekit. If you re-enable the sessions/enlightenment.desktop, please patch
+# it to use Exec="/usr/share/X11/xdm/Xsession E17". See bug #59123
+rm -f %{buildroot}/%{_datadir}/xsessions/enlightenment.desktop
+
 cp -av %{SOURCE1} /%buildroot/%{_datadir}/enlightenment/data/backgrounds/
 bunzip2 -v /%buildroot/%{_datadir}/enlightenment/data/backgrounds/mandriva.edj.bz2
 
@@ -91,7 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/enlightenment
 %_bindir/enlightenment_*
 %_datadir/enlightenment
-%_datadir/xsessions/*
 %_libdir/enlightenment
 %exclude %_libdir/enlightenment/modules/*/*/module.la
 %config %_sysconfdir/X11/wmsession.d/23E17
