@@ -1,7 +1,7 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.063
-%define release %mkrel 2
+%define version 0.16.999.49898
+%define release %mkrel 1
 
 Summary: 	Enlightenment DR 17 window manager
 Name: 		%name
@@ -56,7 +56,7 @@ perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
 
 %build
 # add the Mandriva profil
-%configure2_5x --enable-files --disable-valgrind
+%configure2_5x --enable-files
 # default profil is the mandriva one
 
 %make
