@@ -13,6 +13,7 @@ Source: 	http://download.enlightenment.org/snapshots/LATEST/%{oname}-%{version}.
 Source1:	mandriva.edj.bz2
 Patch0:         e17_sysactions.conf.patch
 Patch1:		e17_e_fwin.c.patch
+Patch2:		enlightenment-0.16.999.52995-fix-build.patch
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
 Buildrequires:  ecore-devel >= 1.0.0
@@ -52,6 +53,7 @@ E17 development headers and development libraries.
 perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 %build
 # add the Mandriva profil
