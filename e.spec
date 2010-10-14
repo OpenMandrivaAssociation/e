@@ -1,6 +1,6 @@
 %define name 	e
 %define oname	enlightenment
-%define version 0.16.999.49898
+%define version 0.16.999.52995
 %define release %mkrel 1
 
 Summary: 	Enlightenment DR 17 window manager
@@ -15,21 +15,20 @@ Patch0:         e17_sysactions.conf.patch
 Patch1:		e17_e_fwin.c.patch
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
-Buildrequires:  ecore-devel >= 0.9.9.063
-BuildRequires:	evas-devel >= 0.9.9.063
-BuildRequires:	edje-devel >= 0.9.93.063, edje >= 0.9.93.063
-Buildrequires:  embryo-devel >= 0.9.9.050, embryo >= 0.9.9.050
-Buildrequires:  efreet-devel >= 0.5.0.063
-BuildRequires:	e_dbus-devel >= 0.5.0.063
-BuildRequires:	eet >= 1.1.0
+Buildrequires:  ecore-devel >= 1.0.0
+BuildRequires:	evas-devel >= 1.0.0
+BuildRequires:	edje-devel >= 1.0.0, edje >= 1.0.0
+Buildrequires:  embryo-devel >= 1.0.0, embryo >= 1.0.0
+Buildrequires:  efreet-devel >= 1.0.0
+BuildRequires:	e_dbus-devel >= 1.0.0
+BuildRequires:	eet >= 1.4.0
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
+BuildRequires:  eeze-devel >= 1.0.0
 BuildRequires:	libalsa-devel
 BuildRequires:	multiarch-utils
-Requires:	eet >= 1.1.0 , ecore >= 0.9.9.050, efreet >= 0.5.0.050, embryo >= 0.9.9.050, e_dbus >= 0.5.0.050
-Requires:	etk >= 0.1.0.042
-Requires:	emotion >= 0.1.0.042, epsilon >= 0.3.0.012, esmart >= 0.9.0.050, ewl >= 0.5.3.050
 Requires:	acpitool
+Requires:	eet >= 1.4.0 , ecore >= 1.0.0, efreet >= 1.0.0, embryo >= 1.0.0, e_dbus >= 1.0.0
 # mixer module have been merged into main from e_modules
 Conflicts:	e_modules < 1:0.0.1-0.20080306.2
 
