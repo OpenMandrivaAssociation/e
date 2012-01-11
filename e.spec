@@ -19,7 +19,7 @@
 Summary: 	Enlightenment DR 17 window manager
 Name: 		e
 Version: 	0.16.999.%{svnrev}
-Release: 	1
+Release: 	2
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL: 		http://www.enlightenment.org/
@@ -42,6 +42,7 @@ BuildRequires:	pkgconfig(eeze) >= 1.0.0
 Buildrequires:	pkgconfig(efreet) >= 1.0.0
 Buildrequires:	pkgconfig(embryo) >= 1.0.0
 BuildRequires:	pkgconfig(evas) >= 1.0.0
+BuildRequires:	pkgconfig(exchange)
 
 Requires:	acpitool
 Requires:	eet >= 1.4.0
