@@ -19,19 +19,20 @@
 Summary: 	Enlightenment DR 17 window manager
 Name: 		e
 Version: 	0.16.999.%{svnrev}
-Release: 	2
+Release: 	1
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL: 		http://www.enlightenment.org/
 Source0: 	http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.xz
 Source1:	mandriva.edj.bz2
-Patch0:		e17_sysactions.conf.patch
+#Patch0:		e17_sysactions.conf.patch
 
 BuildRequires:	eet >= 1.4.0
 BuildRequires:	edje >= 1.0.0
 BuildRequires:	embryo >= 1.0.0
 BuildRequires:	evas >= 1.0.0
 BuildRequires:	multiarch-utils
+BuildRequires:	pm-utils
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
@@ -44,7 +45,8 @@ Buildrequires:	pkgconfig(embryo) >= 1.0.0
 BuildRequires:	pkgconfig(evas) >= 1.0.0
 BuildRequires:	pkgconfig(exchange)
 
-Requires:	acpitool
+#Requires:	acpitool
+Requires:	pm-utils
 Requires:	eet >= 1.4.0
 Requires:	ecore >= 1.0.0
 Requires:	efreet >= 1.0.0
