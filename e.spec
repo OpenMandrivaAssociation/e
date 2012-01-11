@@ -23,11 +23,9 @@ Release: 	1
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL: 		http://www.enlightenment.org/
-Source0: 	http://download.enlightenment.org/snapshots/LATEST/%{oname}-%{version}.tar.xz
+Source0: 	http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.xz
 Source1:	mandriva.edj.bz2
 Patch0:		e17_sysactions.conf.patch
-Patch1:		e17_e_fwin.c.patch
-Patch2:		enlightenment-0.16.999.52995-fix-build.patch
 
 BuildRequires:	eet >= 1.4.0
 BuildRequires:	edje >= 1.0.0
@@ -72,16 +70,14 @@ E17 development headers and development libraries.
 %prep
 %setup -qn %{name}
 perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
-%patch0 -p1
-%patch1 -p1
-%patch2 -p0
+%apply_patches
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 %build
 NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
-	--enable-files
+	--enable-files \
 	--enable-device-udev \
 	--enable-exchange
 # add the Mandriva profil
@@ -129,16 +125,17 @@ bunzip2 -v /%{buildroot}/%{_datadir}/%{oname}/data/backgrounds/mandriva.edj.bz2
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
-%{_bindir}/%{oname}
-%{_bindir}/%{oname}*
-%{_datadir}/%{oname}
-%{_libdir}/%{oname}
 %config %{_sysconfdir}/X11/wmsession.d/23E17
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
+%{_sysconfdir}/xdg/menus/enlightenment.menu
+%{_bindir}/%{oname}
+%{_bindir}/%{oname}_*
+%{_datadir}/%{oname}
+%{_libdir}/%{oname}
 
 %files devel
 %defattr(-,root,root)
 %{_bindir}/%{oname}-config
+%{multiarch_bindir}/%{oname}-config
 %{_libdir}/pkgconfig/*.pc
-%multiarch %{multiarch_bindir}/%{oname}-config
 %{_includedir}/%{oname}
