@@ -12,38 +12,58 @@
 #tar -Jcf e-$PKG_VERSION.tar.xz e/ --exclude .svn --exclude .*ignore
 
 %define use_ccache 1
-%define oname	enlightenment
+%define oname enlightenment
 
-%define svnrev 66770
+#define svnrev 76819
+%define pre alpha8
 
-Summary: 	Enlightenment DR 17 window manager
-Name: 		e
-Version: 	0.16.999.%{svnrev}
-Release: 	2
-License: 	BSD
-Group: 		Graphical desktop/Enlightenment
-URL: 		http://www.enlightenment.org/
-Source0: 	http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.xz
-Source1:	mandriva.edj.bz2
-#Patch0:		e17_sysactions.conf.patch
+Summary:	Enlightenment DR 17 window manager
+Name:		e
+Version:	0.17.0
+Release:	0.%{pre}.1
+License:	BSD
+Group:		Graphical desktop/Enlightenment
+URL:		http://www.enlightenment.org/
+Source0:	http://download.enlightenment.org/releases/%{oname}-%{version}-%{pre}.tar.bz2
+# When we have it:
+#Source1:	some-theme.edj.bz2
+Patch0:		e17_sysactions.conf.patch
 
-BuildRequires:	eet >= 1.4.0
-BuildRequires:	edje >= 1.0.0
-BuildRequires:	embryo >= 1.0.0
-BuildRequires:	evas >= 1.0.0
 BuildRequires:	multiarch-utils
-BuildRequires:	pm-utils
+BuildRequires:	doxygen
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
+BuildRequires:	edje
+BuildRequires:	eet
+BuildRequires:	embryo
 BuildRequires:	pkgconfig(alsa)
-Buildrequires:	pkgconfig(ecore) >= 1.0.0
-BuildRequires:	pkgconfig(edje) >= 1.0.0
-BuildRequires:	pkgconfig(edbus) >= 1.0.0
-BuildRequires:	pkgconfig(eeze) >= 1.0.0
-Buildrequires:	pkgconfig(efreet) >= 1.0.0
-Buildrequires:	pkgconfig(embryo) >= 1.0.0
-BuildRequires:	pkgconfig(evas) >= 1.0.0
+BuildRequires:	pkgconfig(dbus-1)
+BuildRequires:	pkgconfig(ebluez) >= 1.2.0
+BuildRequires:	pkgconfig(ecore) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-input-evas) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-ipc) >= 1.2.0
+BuildRequires:	pkgconfig(ecore-x) >= 1.2.99
+BuildRequires:	pkgconfig(edbus) >= 1.2.0
+BuildRequires:	pkgconfig(edje) >= 1.2.0
+BuildRequires:	pkgconfig(eet) >= 1.6.0
+BuildRequires:	pkgconfig(eeze) >= 1.2.0
+BuildRequires:	pkgconfig(efreet) >= 1.2.99
+BuildRequires:	pkgconfig(efreet-mime) >= 1.2.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.2.0
+BuildRequires:	pkgconfig(eina) >= 1.2.0
+BuildRequires:	pkgconfig(eio) >= 1.0.0
+BuildRequires:	pkgconfig(elementary) >= 1.6.9.0
+BuildRequires:	pkgconfig(eofono) >= 1.2.0
+BuildRequires:	pkgconfig(ephysics)
+BuildRequires:	pkgconfig(ethumb)
+BuildRequires:	pkgconfig(evas) >= 1.2.0
 BuildRequires:	pkgconfig(exchange)
+BuildRequires:	pkgconfig(xcb)
+BuildRequires:	pkgconfig(xcb-shape)
 
 #Requires:	acpitool
 Requires:	pm-utils
@@ -53,8 +73,10 @@ Requires:	efreet >= 1.0.0
 Requires:	embryo >= 1.0.0
 Requires:	e_dbus >= 1.0.0
 Requires:	evas >= 1.0.0
+Requires:	evas_generic_loaders
+Suggests:	econnman
 
-Provides:   %{oname} = %{version}-%{release}
+Provides:	%{oname} = %{version}-%{release}
 
 %description
 E17 is a next generation window manager for UNIX operating systems. Based on
@@ -64,34 +86,32 @@ to drive the development of graphical applications industry-wide for several
 years to come.
 
 %package devel
-Summary: Enlightenment library headers and development libraries
-Group: Development/C
+Summary:	Enlightenment library headers and development libraries
+Group:		Development/C
 
 %description devel
 E17 development headers and development libraries.
 
 %prep
-%setup -qn %{name}
-perl -pi -e 's|/lib|/%{_lib}||g' src/bin/e_start_main.c
+%setup -qn %{oname}-%{version}-%{pre}
 %apply_patches
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 %build
-NOCONFIGURE=yes ./autogen.sh
+#NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
 	--enable-files \
+	--disable-device-hal \
+	--disable-mount-hal \
 	--enable-device-udev \
 	--enable-exchange
-# add the Mandriva profil
-# default profil is the mandriva one
 
 %make
 
 %install
-rm -fr %{buildroot}
 %makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
+
 %find_lang %{oname}
 
 #fake e-config
@@ -121,10 +141,13 @@ EOF
 # /etc/X11/dm/Sessions/23E17.desktop, which uses Xsession and consequently
 # consolekit. If you re-enable the sessions/enlightenment.desktop, please patch
 # it to use Exec="/usr/share/X11/xdm/Xsession E17". See bug #59123
-rm -f %{buildroot}/%{_datadir}/xsessions/%{oname}.desktop
+rm -f %{buildroot}%{_datadir}/xsessions/%{oname}.desktop
 
-cp -av %{SOURCE1} /%{buildroot}/%{_datadir}/%{oname}/data/backgrounds/
-bunzip2 -v /%{buildroot}/%{_datadir}/%{oname}/data/backgrounds/mandriva.edj.bz2
+# When we have our own theme
+# rename default theme, so we can replace it with our theme
+#mv %{buildroot}%{_datadir}/enlightenment/data/themes/default.edj %{buildroot}%{_datadir}/enlightenment/data/themes/original-default.edj
+# add our theme as default
+#bzcat %{SOURCE1} > %{buildroot}%{_datadir}/enlightenment/data/themes/default.edj
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
@@ -134,11 +157,12 @@ bunzip2 -v /%{buildroot}/%{_datadir}/%{oname}/data/backgrounds/mandriva.edj.bz2
 %{_bindir}/%{oname}
 %{_bindir}/%{oname}_*
 %{_datadir}/%{oname}
+%{_datadir}/applications/enlightenment_filemanager.desktop
 %{_libdir}/%{oname}
 
 %files devel
-%defattr(-,root,root)
 %{_bindir}/%{oname}-config
 %{multiarch_bindir}/%{oname}-config
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/%{oname}
+

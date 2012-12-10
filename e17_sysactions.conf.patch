@@ -1,0 +1,10 @@
+Index: e/data/etc/sysactions.conf.in
+===================================================================
+--- e.orig/data/etc/sysactions.conf.in
++++ e/data/etc/sysactions.conf.in
+@@ -81,4 +81,4 @@ group:    plugdev   allow: *
+ #
+ #
+ # deny everyone else by default
+-user:     *         deny:  *
++user:     *         allow:  *
