@@ -1,41 +1,25 @@
-#Tarball of svn snapshot created as follows...
-#Cut and paste in a shell after removing initial #
-
-#svn co http://svn.enlightenment.org/svn/e/trunk/e e; \
-#cd e; \
-#SVNREV=$(LANGUAGE=C svn info | grep "Last Changed Rev:" | cut -d: -f 2 | sed "s@ @@"); \
-#v_maj=$(cat configure.ac | grep 'm4_define(\[v_maj\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#v_min=$(cat configure.ac | grep 'm4_define(\[v_min\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#v_mic=$(cat configure.ac | grep 'm4_define(\[v_mic\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
-#PKG_VERSION=$v_maj.$v_min.$v_mic.$SVNREV; \
-#cd ..; \
-#tar -Jcf e-$PKG_VERSION.tar.xz e/ --exclude .svn --exclude .*ignore
-
 %define use_ccache 1
 %define oname enlightenment
-
-#define svnrev 76819
-%define pre alpha8
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
 Version:	0.17.0
-Release:	0.%{pre}.1
+Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 URL:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/releases/%{oname}-%{version}-%{pre}.tar.bz2
+Source0:	http://download.enlightenment.fr/releases/%{oname}-%{version}.tar.bz2
 # When we have it:
 #Source1:	some-theme.edj.bz2
 Patch0:		e17_sysactions.conf.patch
 
-BuildRequires:	multiarch-utils
 BuildRequires:	doxygen
-BuildRequires:	gettext-devel
-BuildRequires:	pam-devel
 BuildRequires:	edje
 BuildRequires:	eet
 BuildRequires:	embryo
+BuildRequires:	multiarch-utils
+BuildRequires:	gettext-devel
+BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(ebluez) >= 1.2.0
@@ -64,6 +48,7 @@ BuildRequires:	pkgconfig(evas) >= 1.2.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-shape)
+BuildRequires:	pkgconfig(xcb-keysyms)
 
 #Requires:	acpitool
 Requires:	pm-utils
@@ -93,13 +78,12 @@ Group:		Development/C
 E17 development headers and development libraries.
 
 %prep
-%setup -qn %{oname}-%{version}-%{pre}
+%setup -qn %{oname}-%{version}
 %apply_patches
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 %build
-#NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
 	--enable-files \
 	--disable-device-hal \
@@ -121,7 +105,7 @@ touch %{buildroot}/%{_bindir}/%{oname}-config
 #fix bad perms
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_sys
-chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
+#chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
 # display manager entry
 mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
