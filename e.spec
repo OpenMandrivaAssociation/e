@@ -1,5 +1,6 @@
 %define use_ccache 1
 %define oname enlightenment
+%define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
