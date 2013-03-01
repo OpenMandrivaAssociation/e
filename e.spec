@@ -3,7 +3,7 @@
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
-Version:	0.17.0
+Version:	0.17.1
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
