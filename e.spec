@@ -1,66 +1,67 @@
 %define use_ccache 1
 %define oname enlightenment
+
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
-Version:	0.17.1
+Version:	0.17.2.1
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 URL:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{oname}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/releases/%{oname}-%{version}.tar.gz
 # When we have it:
 #Source1:	some-theme.edj.bz2
 Patch0:		e17_sysactions.conf.patch
 
+BuildRequires:	multiarch-utils
 BuildRequires:	doxygen
+BuildRequires:	gettext-devel
+BuildRequires:	pam-devel
 BuildRequires:	edje
 BuildRequires:	eet
 BuildRequires:	embryo
-BuildRequires:	multiarch-utils
-BuildRequires:	gettext-devel
-BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ebluez) >= 1.2.0
-BuildRequires:	pkgconfig(ecore) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-input-evas) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-ipc) >= 1.2.0
-BuildRequires:	pkgconfig(ecore-x) >= 1.2.99
-BuildRequires:	pkgconfig(edbus) >= 1.2.0
-BuildRequires:	pkgconfig(edje) >= 1.2.0
-BuildRequires:	pkgconfig(eet) >= 1.6.0
-BuildRequires:	pkgconfig(eeze) >= 1.2.0
-BuildRequires:	pkgconfig(efreet) >= 1.2.99
-BuildRequires:	pkgconfig(efreet-mime) >= 1.2.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.2.0
-BuildRequires:	pkgconfig(eina) >= 1.2.0
-BuildRequires:	pkgconfig(eio) >= 1.0.0
-BuildRequires:	pkgconfig(elementary) >= 1.6.9.0
-BuildRequires:	pkgconfig(eofono) >= 1.2.0
+BuildRequires:	pkgconfig(ebluez) >= 1.7.4
+BuildRequires:	pkgconfig(ecore) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-con) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-evas) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-file) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-input) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-input-evas) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-ipc) >= 1.7.4
+BuildRequires:	pkgconfig(ecore-x) >= 1.7.4
+BuildRequires:	pkgconfig(edbus) >= 1.7.4
+BuildRequires:	pkgconfig(edje) >= 1.7.4
+BuildRequires:	pkgconfig(eet) >= 1.7.4
+BuildRequires:	pkgconfig(eeze) >= 1.7.4
+BuildRequires:	pkgconfig(efreet) >= 1.7.4
+BuildRequires:	pkgconfig(efreet-mime) >= 1.7.4
+BuildRequires:	pkgconfig(efreet-trash) >= 1.7.4
+BuildRequires:	pkgconfig(eina) >= 1.7.4
+BuildRequires:	pkgconfig(eio) >= 1.7.4
+BuildRequires:	pkgconfig(elementary) >= 1.7.4
+BuildRequires:	pkgconfig(eofono) >= 1.7.4
 BuildRequires:	pkgconfig(ephysics)
 BuildRequires:	pkgconfig(ethumb)
-BuildRequires:	pkgconfig(evas) >= 1.2.0
+BuildRequires:	pkgconfig(evas) >= 1.7.4
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
-BuildRequires:	pkgconfig(xcb-shape)
 BuildRequires:	pkgconfig(xcb-keysyms)
+BuildRequires:	pkgconfig(xcb-shape)
 
 #Requires:	acpitool
 Requires:	pm-utils
-Requires:	eet >= 1.4.0
-Requires:	ecore >= 1.0.0
-Requires:	efreet >= 1.0.0
-Requires:	embryo >= 1.0.0
-Requires:	e_dbus >= 1.0.0
-Requires:	evas >= 1.0.0
-Requires:	evas_generic_loaders
-Suggests:	econnman
+Requires:	eet >= 1.7.4
+Requires:	ecore >= 1.7.4
+Requires:	efreet >= 1.7.4
+Requires:	embryo >= 1.7.4
+Requires:	e_dbus >= 1.7.4
+Requires:	evas >= 1.7.4
+Requires:	evas_generic_loaders >= 1.7.4
+#Suggests:	econnman
 
 Provides:	%{oname} = %{version}-%{release}
 
@@ -85,6 +86,7 @@ E17 development headers and development libraries.
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 %build
+#NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
 	--enable-files \
 	--disable-device-hal \
@@ -106,7 +108,7 @@ touch %{buildroot}/%{_bindir}/%{oname}-config
 #fix bad perms
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_sys
-#chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
+chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
 # display manager entry
 mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
