@@ -6,7 +6,7 @@
 Summary:	Enlightenment DR 17 window manager
 Name:		e
 Version:	0.17.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -14,6 +14,7 @@ Source0:	http://download.enlightenment.org/releases/%{oname}-%{version}.tar.bz2
 # When we have it:
 #Source1:	some-theme.edj.bz2
 Patch0:		e17_sysactions.conf.patch
+Patch1:		enlightenment-0.17.4-splash.patch
 
 BuildRequires:	multiarch-utils
 BuildRequires:	doxygen
