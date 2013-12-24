@@ -15,13 +15,14 @@ Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}
 #Source1:	some-theme.edj.bz2
 Patch0:		e17_sysactions.conf.patch
 
-BuildRequires:	multiarch-utils
 BuildRequires:	doxygen
-BuildRequires:	gettext-devel
-BuildRequires:	pam-devel
 BuildRequires:	edje
 BuildRequires:	eet
 BuildRequires:	embryo
+BuildRequires:	multiarch-utils
+BuildRequires:	systemd-units
+BuildRequires:	gettext-devel
+BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
@@ -83,6 +84,7 @@ years to come.
 %{_datadir}/%{oname}
 %{_datadir}/applications/enlightenment_filemanager.desktop
 %{_libdir}/%{oname}
+%{_unitdir}/e18.service
 
 #----------------------------------------------------------------------------
 
@@ -112,7 +114,6 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 %configure2_5x \
 	--enable-files \
 	--disable-device-hal \
-	--disable-mount-hal \
 	--enable-device-udev
 
 %make
@@ -121,6 +122,9 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 %makeinstall_std
 
 %find_lang %{oname}
+
+# Put systemd service to proper path
+mv %{buildroot}%{_libdir}/systemd/user/e18.service %{_unitdir}/e18.service
 
 #fake e-config
 touch %{buildroot}/%{_bindir}/%{oname}-config
