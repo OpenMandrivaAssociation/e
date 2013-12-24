@@ -6,7 +6,7 @@
 Summary:	Enlightenment DR 17 window manager
 Name:		e
 Version:	0.18.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -138,22 +138,22 @@ chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
 # display manager entry
 mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
-cat << EOF > %{buildroot}/%{_sysconfdir}/X11/wmsession.d/23E17
-NAME=E17
+cat << EOF > %{buildroot}/%{_sysconfdir}/X11/wmsession.d/23E18
+NAME=E18
 ICON=
 EXEC=/usr/bin/enlightenment_start
 SCRIPT:
 exec /usr/bin/enlightenment_start
 EOF
 
-# We already have wmsession.d/23E17, so we can remove
-# xsessions/enlightenment.desktop. If we keep both files, we'll have both "E17"
+# We already have wmsession.d/23E18, so we can remove
+# xsessions/enlightenment.desktop. If we keep both files, we'll have both "E18"
 # and "Enlightenment" options in the Display Manager (GDM, Entrance), which is
 # not good.
 # Also, the wmsession.d file is used to generate
-# /etc/X11/dm/Sessions/23E17.desktop, which uses Xsession and consequently
+# /etc/X11/dm/Sessions/23E18.desktop, which uses Xsession and consequently
 # consolekit. If you re-enable the sessions/enlightenment.desktop, please patch
-# it to use Exec="/usr/share/X11/xdm/Xsession E17". See bug #59123
+# it to use Exec="/usr/share/X11/xdm/Xsession E18". See bug #59123
 rm -f %{buildroot}%{_datadir}/xsessions/%{oname}.desktop
 
 # When we have our own theme
