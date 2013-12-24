@@ -124,7 +124,8 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 %find_lang %{oname}
 
 # Put systemd service to proper path
-mv %{buildroot}%{_libdir}/systemd/user/e18.service %{buildroot}%{_unitdir}/e18.service
+mkdir -p %{buildroot}%{_unitdir}/
+mv %{buildroot}%{_prefix}/lib/systemd/user/e18.service %{buildroot}%{_unitdir}/e18.service
 
 #fake e-config
 touch %{buildroot}/%{_bindir}/%{oname}-config
