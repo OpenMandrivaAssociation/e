@@ -76,7 +76,7 @@ years to come.
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
-%config %{_sysconfdir}/X11/wmsession.d/23E17
+%config %{_sysconfdir}/X11/wmsession.d/23E18
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
 %{_sysconfdir}/xdg/menus/enlightenment.menu
 %{_bindir}/%{oname}
