@@ -5,12 +5,12 @@
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
-Version:	0.18.3
+Version:	0.18.7
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.gz
 # When we have it:
 #Source1:	some-theme.edj.bz2
 Patch0:		e17_sysactions.conf.patch
