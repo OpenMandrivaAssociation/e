@@ -5,15 +5,15 @@
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
-Version:	0.18.7
-Release:	1
+Version:	0.18.8
+Release:	2
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.gz
 # When we have it:
 #Source1:	some-theme.edj.bz2
-Patch0:		e17_sysactions.conf.patch
+#Patch0:		e17_sysactions.conf.patch
 
 BuildRequires:	doxygen
 BuildRequires:	edje
@@ -26,27 +26,27 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-ipc) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-x) >= 1.8.0
-BuildRequires:	pkgconfig(edje) >= 1.8.0
-BuildRequires:	pkgconfig(eet) >= 1.8.0
-BuildRequires:	pkgconfig(eeze) >= 1.8.0
-BuildRequires:	pkgconfig(efreet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
-BuildRequires:	pkgconfig(eina) >= 1.8.0
-BuildRequires:	pkgconfig(eio) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(elementary) >= 1.8.0
+BuildRequires:	pkgconfig(ecore) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-input-evas) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-ipc) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-x) >= 1.10.0
+BuildRequires:	pkgconfig(edje) >= 1.10.0
+BuildRequires:	pkgconfig(eet) >= 1.10.0
+BuildRequires:	pkgconfig(eeze) >= 1.10.0
+BuildRequires:	pkgconfig(efreet) >= 1.10.0
+BuildRequires:	pkgconfig(efreet-mime) >= 1.10.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.10.0
+BuildRequires:	pkgconfig(eina) >= 1.10.0
+BuildRequires:	pkgconfig(eio) >= 1.10.0
+BuildRequires:	pkgconfig(eldbus) >= 1.10.0
+BuildRequires:	pkgconfig(elementary) >= 1.10.0
 BuildRequires:	pkgconfig(ephysics)
 BuildRequires:	pkgconfig(ethumb)
-BuildRequires:	pkgconfig(evas) >= 1.8.0
+BuildRequires:	pkgconfig(evas) >= 1.10.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
@@ -54,15 +54,10 @@ BuildRequires:	pkgconfig(xcb-shape)
 
 #Requires:	acpitool
 Requires:	pm-utils
-Requires:	eet >= 1.8.0
-Requires:	ecore >= 1.8.0
-Requires:	efreet >= 1.8.0
-Requires:	embryo >= 1.8.0
-Requires:	emotion >= 1.8.0
-Requires:	emotion_generic_players >= 1.8.0
-Requires:	eldbus >= 1.8.0
-Requires:	evas >= 1.8.0
-Requires:	evas_generic_loaders >= 1.8.0
+Requires:	elementary >= 1.10.0
+Requires:	emotion_generic_players >= 1.10.0
+Requires:	efl >= 1.10.0
+Requires:	evas_generic_loaders >= 1.10.0
 #Suggests:	econnman
 
 Provides:	%{oname} = %{EVRD}
