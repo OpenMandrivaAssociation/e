@@ -100,7 +100,7 @@ E17 development headers and development libraries.
 
 %prep
 %setup -qn %{oname}-%{version}
-%apply_patches
+#apply_patches
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
