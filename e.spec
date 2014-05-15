@@ -16,9 +16,6 @@ Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}
 #Patch0:		e17_sysactions.conf.patch
 
 BuildRequires:	doxygen
-BuildRequires:	edje
-BuildRequires:	eet
-BuildRequires:	embryo
 BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
@@ -26,27 +23,10 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-input-evas) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-ipc) >= 1.10.0
-BuildRequires:	pkgconfig(ecore-x) >= 1.10.0
-BuildRequires:	pkgconfig(edje) >= 1.10.0
-BuildRequires:	pkgconfig(eet) >= 1.10.0
-BuildRequires:	pkgconfig(eeze) >= 1.10.0
-BuildRequires:	pkgconfig(efreet) >= 1.10.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.10.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.10.0
-BuildRequires:	pkgconfig(eina) >= 1.10.0
-BuildRequires:	pkgconfig(eio) >= 1.10.0
-BuildRequires:	pkgconfig(eldbus) >= 1.10.0
+BuildRequires:	pkgconfig(efl) >= 1.10.0
 BuildRequires:	pkgconfig(elementary) >= 1.10.0
-BuildRequires:	pkgconfig(ephysics)
-BuildRequires:	pkgconfig(ethumb)
-BuildRequires:	pkgconfig(evas) >= 1.10.0
+BuildRequires:	emotion_generic_players >= 1.10.0
+BuildRequires:	evas_generic_loaders >= 1.10.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
