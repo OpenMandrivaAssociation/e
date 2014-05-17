@@ -23,8 +23,8 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(efl) >= 1.10.0
-BuildRequires:	pkgconfig(elementary) >= 1.10.0
+BuildRequires:	efl >= 1.10.0
+BuildRequires:	elementary >= 1.10.0
 BuildRequires:	emotion_generic_players >= 1.10.0
 BuildRequires:	evas_generic_loaders >= 1.10.0
 BuildRequires:	pkgconfig(exchange)
