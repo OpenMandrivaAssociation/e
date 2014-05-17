@@ -14,7 +14,6 @@ Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}
 # When we have it:
 #Source1:	some-theme.edj.bz2
 #Patch0:		e17_sysactions.conf.patch
-
 BuildRequires:	doxygen
 BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
@@ -23,17 +22,32 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	efl >= 1.10.0
-BuildRequires:	elementary >= 1.10.0
-BuildRequires:	emotion_generic_players >= 1.10.0
-BuildRequires:	evas_generic_loaders >= 1.10.0
 BuildRequires:	pkgconfig(ecore) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-input-evas) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-ipc) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-x) >= 1.10.0
+BuildRequires:	pkgconfig(edje) >= 1.10.0
+BuildRequires:	pkgconfig(eet) >= 1.10.0
 BuildRequires:	pkgconfig(eeze) >= 1.10.0
+BuildRequires:	pkgconfig(efreet) >= 1.10.0
+BuildRequires:	pkgconfig(efreet-mime) >= 1.10.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.10.0
+BuildRequires:	pkgconfig(eina) >= 1.10.0
+BuildRequires:	pkgconfig(eio) >= 1.10.0
+BuildRequires:	pkgconfig(eldbus) >= 1.10.0
+BuildRequires:	pkgconfig(elementary) >= 1.10.0
+BuildRequires:	pkgconfig(ephysics) >= 1.10.0
+BuildRequires:	pkgconfig(ethumb) >= 1.10.0
+BuildRequires:	pkgconfig(evas) >= 1.10.0
+BuildRequires:	pkgconfig(evas) >= 1.10.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
-
 #Requires:	acpitool
 Requires:	pm-utils
 Requires:	elementary >= 1.10.0
