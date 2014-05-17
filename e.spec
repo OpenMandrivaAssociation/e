@@ -27,6 +27,8 @@ BuildRequires:	efl >= 1.10.0
 BuildRequires:	elementary >= 1.10.0
 BuildRequires:	emotion_generic_players >= 1.10.0
 BuildRequires:	evas_generic_loaders >= 1.10.0
+BuildRequires:	pkgconfig(ecore) >= 1.10.0
+BuildRequires:	pkgconfig(eeze) >= 1.10.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
