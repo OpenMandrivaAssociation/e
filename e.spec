@@ -59,8 +59,8 @@ Requires:	evas_generic_loaders >= 1.10.0
 Provides:	%{oname} = %{EVRD}
 
 %description
-E17 is a next generation window manager for UNIX operating systems. Based on
-the Enlightenment Foundation Libraries (EFL), E17 is much more than just
+E18 (works with composite enabled cards only) is a next generation window manager for UNIX operating systems. Based on
+the Enlightenment Foundation Libraries (EFL), E18 is much more than just
 another window manager - it's an ambitious and innovative project that aims
 to drive the development of graphical applications industry-wide for several
 years to come.
@@ -84,7 +84,7 @@ Summary:	Enlightenment library headers and development libraries
 Group:		Development/C
 
 %description devel
-E17 development headers and development libraries.
+E18 development headers and development libraries.
 
 %files devel
 %{_bindir}/%{oname}-config
