@@ -60,10 +60,8 @@ Provides:	%{oname} = %{EVRD}
 
 %description
 E18 (works with composite enabled cards only) is a next generation window manager for UNIX operating systems. Based on
-the Enlightenment Foundation Libraries (EFL), E18 is much more than just
-another window manager - it's an ambitious and innovative project that aims
-to drive the development of graphical applications industry-wide for several
-years to come.
+the Enlightenment Foundation Libraries (EFL), E18 is much more than just another window manager - it's an ambitious and innovative project that aims
+to drive the development of graphical applications industry-wide for several years to come.
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
