@@ -59,7 +59,9 @@ Requires:	evas_generic_loaders >= 1.10.0
 Provides:	%{oname} = %{EVRD}
 
 %description
-E18 for composite enabled cards only is a next generation window manager for UNIX operating systems, based on the Enlightenment Foundation Libraries (EFL)
+E18 is a next generation window manager 
+based on the Enlightenment Foundation Libraries (EFL)
+for composite enabled cards only
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
