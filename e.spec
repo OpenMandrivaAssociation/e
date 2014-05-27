@@ -5,20 +5,16 @@
 
 Summary:	Enlightenment DR 17 window manager
 Name:		e
-Version:	0.18.7
-Release:	1
+Version:	0.18.8
+Release:	3
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.gz
 # When we have it:
 #Source1:	some-theme.edj.bz2
-Patch0:		e17_sysactions.conf.patch
-
+#Patch0:		e17_sysactions.conf.patch
 BuildRequires:	doxygen
-BuildRequires:	edje
-BuildRequires:	eet
-BuildRequires:	embryo
 BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
@@ -26,53 +22,46 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-ipc) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-x) >= 1.8.0
-BuildRequires:	pkgconfig(edje) >= 1.8.0
-BuildRequires:	pkgconfig(eet) >= 1.8.0
-BuildRequires:	pkgconfig(eeze) >= 1.8.0
-BuildRequires:	pkgconfig(efreet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
-BuildRequires:	pkgconfig(eina) >= 1.8.0
-BuildRequires:	pkgconfig(eio) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(elementary) >= 1.8.0
-BuildRequires:	pkgconfig(ephysics)
-BuildRequires:	pkgconfig(ethumb)
-BuildRequires:	pkgconfig(evas) >= 1.8.0
+BuildRequires:	pkgconfig(ecore) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-input-evas) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-ipc) >= 1.10.0
+BuildRequires:	pkgconfig(ecore-x) >= 1.10.0
+BuildRequires:	pkgconfig(edje) >= 1.10.0
+BuildRequires:	pkgconfig(eet) >= 1.10.0
+BuildRequires:	pkgconfig(eeze) >= 1.10.0
+BuildRequires:	pkgconfig(efreet) >= 1.10.0
+BuildRequires:	pkgconfig(efreet-mime) >= 1.10.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.10.0
+BuildRequires:	pkgconfig(eina) >= 1.10.0
+BuildRequires:	pkgconfig(eio) >= 1.10.0
+BuildRequires:	pkgconfig(eldbus) >= 1.10.0
+BuildRequires:	pkgconfig(elementary) >= 1.10.0
+BuildRequires:	pkgconfig(ephysics) >= 1.10.0
+BuildRequires:	pkgconfig(ethumb) >= 1.10.0
+BuildRequires:	pkgconfig(evas) >= 1.10.0
+BuildRequires:	pkgconfig(evas) >= 1.10.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
-
 #Requires:	acpitool
 Requires:	pm-utils
-Requires:	eet >= 1.8.0
-Requires:	ecore >= 1.8.0
-Requires:	efreet >= 1.8.0
-Requires:	embryo >= 1.8.0
-Requires:	emotion >= 1.8.0
-Requires:	emotion_generic_players >= 1.8.0
-Requires:	eldbus >= 1.8.0
-Requires:	evas >= 1.8.0
-Requires:	evas_generic_loaders >= 1.8.0
+Requires:	elementary >= 1.10.0
+Requires:	emotion_generic_players >= 1.10.0
+Requires:	efl >= 1.10.0
+Requires:	evas_generic_loaders >= 1.10.0
 #Suggests:	econnman
 
 Provides:	%{oname} = %{EVRD}
 
 %description
-E17 is a next generation window manager for UNIX operating systems. Based on
-the Enlightenment Foundation Libraries (EFL), E17 is much more than just
-another window manager - it's an ambitious and innovative project that aims
-to drive the development of graphical applications industry-wide for several
-years to come.
+E18 is a next generation window manager 
+based on the Enlightenment Foundation Libraries (EFL)
+for composite enabled cards only
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
@@ -93,7 +82,7 @@ Summary:	Enlightenment library headers and development libraries
 Group:		Development/C
 
 %description devel
-E17 development headers and development libraries.
+E18 development headers and development libraries.
 
 %files devel
 %{_bindir}/%{oname}-config
@@ -105,7 +94,7 @@ E17 development headers and development libraries.
 
 %prep
 %setup -qn %{oname}-%{version}
-%apply_patches
+#apply_patches
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
@@ -125,7 +114,7 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 # Put systemd service to proper path
 mkdir -p %{buildroot}%{_unitdir}/
-mv %{buildroot}%{_prefix}/lib/systemd/user/e18.service %{buildroot}%{_unitdir}/e18.service
+mv %{buildroot}/usr/lib/systemd/user/e18.service %{buildroot}%{_unitdir}/e18.service
 
 #fake e-config
 touch %{buildroot}/%{_bindir}/%{oname}-config
