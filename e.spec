@@ -3,22 +3,18 @@
 
 %define _disable_ld_no_undefined 1
 
-Summary:	Enlightenment DR 17 window manager
+Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.18.7
-Release:	3
+Version:	0.19.4
+Release:	0
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.gz
+Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.xz
 # When we have it:
 #Source1:	some-theme.edj.bz2
-Patch0:		e17_sysactions.conf.patch
-
+#Patch0:		e17_sysactions.conf.patch
 BuildRequires:	doxygen
-BuildRequires:	edje
-BuildRequires:	eet
-BuildRequires:	embryo
 BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
@@ -26,65 +22,58 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-input-evas) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-ipc) >= 1.8.0
-BuildRequires:	pkgconfig(ecore-x) >= 1.8.0
-BuildRequires:	pkgconfig(edje) >= 1.8.0
-BuildRequires:	pkgconfig(eet) >= 1.8.0
-BuildRequires:	pkgconfig(eeze) >= 1.8.0
-BuildRequires:	pkgconfig(efreet) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.8.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.8.0
-BuildRequires:	pkgconfig(eina) >= 1.8.0
-BuildRequires:	pkgconfig(eio) >= 1.8.0
-BuildRequires:	pkgconfig(eldbus) >= 1.8.0
-BuildRequires:	pkgconfig(elementary) >= 1.8.0
-BuildRequires:	pkgconfig(ephysics)
-BuildRequires:	pkgconfig(ethumb)
-BuildRequires:	pkgconfig(evas) >= 1.8.0
+BuildRequires:	pkgconfig(ecore) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-con) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-evas) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-file) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-input) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-input-evas) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-ipc) >= 1.11.0
+BuildRequires:	pkgconfig(ecore-x) >= 1.11.0
+BuildRequires:	pkgconfig(edje) >= 1.11.0
+BuildRequires:	pkgconfig(eet) >= 1.11.0
+BuildRequires:	pkgconfig(eeze) >= 1.11.0
+BuildRequires:	pkgconfig(efreet) >= 1.11.0
+BuildRequires:	pkgconfig(efreet-mime) >= 1.11.0
+BuildRequires:	pkgconfig(efreet-trash) >= 1.11.0
+BuildRequires:	pkgconfig(eina) >= 1.11.0
+BuildRequires:	pkgconfig(eio) >= 1.11.0
+BuildRequires:	pkgconfig(eldbus) >= 1.11.0
+BuildRequires:	pkgconfig(elementary) >= 1.11.0
+BuildRequires:	pkgconfig(ephysics) >= 1.11.0
+BuildRequires:	pkgconfig(ethumb) >= 1.11.0
+BuildRequires:	pkgconfig(evas) >= 1.11.0
+BuildRequires:	pkgconfig(evas) >= 1.11.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
-
 #Requires:	acpitool
 Requires:	pm-utils
-Requires:	eet >= 1.8.0
-Requires:	ecore >= 1.8.0
-Requires:	efreet >= 1.8.0
-Requires:	embryo >= 1.8.0
-Requires:	emotion >= 1.8.0
-Requires:	emotion_generic_players >= 1.8.0
-Requires:	eldbus >= 1.8.0
-Requires:	evas >= 1.8.0
-Requires:	evas_generic_loaders >= 1.8.0
+Requires:	elementary >= 1.11.0
+Requires:	emotion_generic_players >= 1.11.0
+Requires:	efl >= 1.11.0
+Requires:	evas_generic_loaders >= 1.11.0
 #Suggests:	econnman
 
 Provides:	%{oname} = %{EVRD}
 
 %description
-E17 is a next generation window manager for UNIX operating systems. Based on
-the Enlightenment Foundation Libraries (EFL), E17 is much more than just
-another window manager - it's an ambitious and innovative project that aims
-to drive the development of graphical applications industry-wide for several
-years to come.
+E19 is a next generation window manager 
+based on the Enlightenment Foundation Libraries (EFL)
+for composite enabled cards only
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
-%config %{_sysconfdir}/X11/wmsession.d/23E18
+%config %{_sysconfdir}/X11/wmsession.d/23E19
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
-%{_sysconfdir}/xdg/menus/enlightenment.menu
+%{_sysconfdir}/xdg/menus/e-applications.menu
 %{_bindir}/%{oname}
 %{_bindir}/%{oname}_*
 %{_datadir}/%{oname}
 %{_datadir}/applications/enlightenment_filemanager.desktop
 %{_libdir}/%{oname}
-%{_unitdir}/e18.service
+%{_unitdir}/enlightenment.service
 
 #----------------------------------------------------------------------------
 
@@ -93,7 +82,7 @@ Summary:	Enlightenment library headers and development libraries
 Group:		Development/C
 
 %description devel
-E17 development headers and development libraries.
+E19 development headers and development libraries.
 
 %files devel
 %{_bindir}/%{oname}-config
@@ -105,7 +94,7 @@ E17 development headers and development libraries.
 
 %prep
 %setup -qn %{oname}-%{version}
-%apply_patches
+#apply_patches
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
@@ -125,7 +114,7 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 # Put systemd service to proper path
 mkdir -p %{buildroot}%{_unitdir}/
-mv %{buildroot}%{_prefix}/lib/systemd/user/e18.service %{buildroot}%{_unitdir}/e18.service
+mv %{buildroot}/usr/lib/systemd/user/enlightenment.service %{buildroot}%{_unitdir}/enlightenment.service
 
 #fake e-config
 touch %{buildroot}/%{_bindir}/%{oname}-config
@@ -138,22 +127,22 @@ chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
 # display manager entry
 mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
-cat << EOF > %{buildroot}/%{_sysconfdir}/X11/wmsession.d/23E18
-NAME=E18
+cat << EOF > %{buildroot}/%{_sysconfdir}/X11/wmsession.d/23E19
+NAME=E19
 ICON=
 EXEC=/usr/bin/enlightenment_start
 SCRIPT:
 exec /usr/bin/enlightenment_start
 EOF
 
-# We already have wmsession.d/23E18, so we can remove
-# xsessions/enlightenment.desktop. If we keep both files, we'll have both "E18"
+# We already have wmsession.d/23E19, so we can remove
+# xsessions/enlightenment.desktop. If we keep both files, we'll have both "E19"
 # and "Enlightenment" options in the Display Manager (GDM, Entrance), which is
 # not good.
 # Also, the wmsession.d file is used to generate
-# /etc/X11/dm/Sessions/23E18.desktop, which uses Xsession and consequently
+# /etc/X11/dm/Sessions/23E19.desktop, which uses Xsession and consequently
 # consolekit. If you re-enable the sessions/enlightenment.desktop, please patch
-# it to use Exec="/usr/share/X11/xdm/Xsession E18". See bug #59123
+# it to use Exec="/usr/share/X11/xdm/Xsession E19". See bug #59123
 rm -f %{buildroot}%{_datadir}/xsessions/%{oname}.desktop
 
 # When we have our own theme
