@@ -1,0 +1,6 @@
+# Some binaries must be SUID
+addFilter("E: setuid-binary")
+#The perms above also generate this error
+addFilter("E: non-standard-executable-perm")
+#Macro in comment. Keeps some useful lines for later
+addFilter("W: macro-in-comment")

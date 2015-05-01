@@ -1,19 +1,20 @@
 %define use_ccache 1
 %define oname enlightenment
+%define serdir usr/lib/systemd/user
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
 Version:	0.19.4
-Release:	0
+Release:	0.1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.xz
 # When we have it:
 #Source1:	some-theme.edj.bz2
-#Patch0:		e17_sysactions.conf.patch
+Patch0:		e17_sysactions.conf.patch
 BuildRequires:	doxygen
 BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
@@ -42,7 +43,6 @@ BuildRequires:	pkgconfig(eldbus) >= 1.11.0
 BuildRequires:	pkgconfig(elementary) >= 1.11.0
 BuildRequires:	pkgconfig(ephysics) >= 1.11.0
 BuildRequires:	pkgconfig(ethumb) >= 1.11.0
-BuildRequires:	pkgconfig(evas) >= 1.11.0
 BuildRequires:	pkgconfig(evas) >= 1.11.0
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
@@ -114,11 +114,14 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 # Put systemd service to proper path
 mkdir -p %{buildroot}%{_unitdir}/
-mv %{buildroot}/usr/lib/systemd/user/enlightenment.service %{buildroot}%{_unitdir}/enlightenment.service
+mv %{buildroot}/%{serdir}/enlightenment.service %{buildroot}/%{_unitdir}/enlightenment.service
 
 #fake e-config
-touch %{buildroot}/%{_bindir}/%{oname}-config
+echo "Fake config file" >  %{buildroot}/%{_bindir}/%{oname}-config
+# Fix it's perms
+chmod 755 %{buildroot}/%{_bindir}/%{oname}-config
 %multiarch_binaries %{buildroot}/%{_bindir}/%{oname}-config
+
 
 #fix bad perms
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
