@@ -1,5 +1,6 @@
 removed_sources:
   enlightenment-0.18.3.tar.bz2: 8fb998aa87439b4ad7237116dbc3dbc4fe77e845
   enlightenment-0.18.7.tar.gz: eb981cf0c4d6716c7e6ee35c9c7f7dbd6c8940b9
-sources:
   enlightenment-0.19.4.tar.xz: d94cfd6011ac81201819241c295c52adf4ae5402
+sources:
+  enlightenment-0.19.5.tar.xz: 8d4c825828658fdc9981ec38422b7fdd0a9c39c8
