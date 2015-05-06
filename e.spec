@@ -49,6 +49,7 @@ BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
 BuildRequires:	pkgconfig(eolian) >= 1.11.0
+BuildRequires:	automake >=1.7
 #Requires:	acpitool
 Requires:	pm-utils
 Requires:	elementary >= 1.11.0
