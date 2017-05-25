@@ -5,7 +5,7 @@
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.19.4
+Version:	0.21.7
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -70,8 +70,11 @@ for composite enabled cards only
 %{_sysconfdir}/xdg/menus/e-applications.menu
 %{_bindir}/%{oname}
 %{_bindir}/%{oname}_*
+%{_bindir}/emixer
 %{_datadir}/%{oname}
+%{_datadir}/applications/emixer.desktop
 %{_datadir}/applications/enlightenment_filemanager.desktop
+%{_datadir}/pixmaps/emixer.png
 %{_libdir}/%{oname}
 %{_unitdir}/enlightenment.service
 
