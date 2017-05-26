@@ -50,10 +50,9 @@ BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
 #Requires:	acpitool
 Requires:	pm-utils
-Requires:	elementary >= 1.11.0
-Requires:	emotion_generic_players >= 1.11.0
+#Requires:	elementary >= 1.11.0
 Requires:	efl >= 1.11.0
-Requires:	evas_generic_loaders >= 1.11.0
+#Requires:	evas_generic_loaders >= 1.11.0
 #Suggests:	econnman
 
 Provides:	%{oname} = %{EVRD}
