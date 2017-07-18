@@ -1,12 +1,14 @@
 %define use_ccache 1
 %define oname enlightenment
 
+%define efl_version 1.19.1
+
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
 Version:	0.21.7
-Release:	2
+Release:	3
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -22,38 +24,36 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-con) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-evas) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-file) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-input) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-input-evas) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-ipc) >= 1.11.0
-BuildRequires:	pkgconfig(ecore-x) >= 1.11.0
-BuildRequires:	pkgconfig(edje) >= 1.11.0
-BuildRequires:	pkgconfig(eet) >= 1.11.0
-BuildRequires:	pkgconfig(eeze) >= 1.11.0
-BuildRequires:	pkgconfig(efreet) >= 1.11.0
-BuildRequires:	pkgconfig(efreet-mime) >= 1.11.0
-BuildRequires:	pkgconfig(efreet-trash) >= 1.11.0
-BuildRequires:	pkgconfig(eina) >= 1.11.0
-BuildRequires:	pkgconfig(eio) >= 1.11.0
-BuildRequires:	pkgconfig(eldbus) >= 1.11.0
+BuildRequires:	pkgconfig(ecore) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-con) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-evas) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-file) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-input) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-input-evas) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-ipc) >= {efl_version}
+BuildRequires:	pkgconfig(ecore-x) >= {efl_version}
+BuildRequires:	pkgconfig(edje) >= {efl_version}
+BuildRequires:	pkgconfig(eet) >= {efl_version}
+BuildRequires:	pkgconfig(eeze) >= {efl_version}
+BuildRequires:	pkgconfig(efreet) >= {efl_version}
+BuildRequires:	pkgconfig(efreet-mime) >= {efl_version}
+BuildRequires:	pkgconfig(efreet-trash) >= {efl_version}
+BuildRequires:	pkgconfig(eina) >= {efl_version}
+BuildRequires:	pkgconfig(eio) >= {efl_version}
+BuildRequires:	pkgconfig(eldbus) >= {efl_version}
 BuildRequires:	pkgconfig(elementary) >= 1.11.0
-BuildRequires:	pkgconfig(ephysics) >= 1.11.0
-BuildRequires:	pkgconfig(ethumb) >= 1.11.0
-BuildRequires:	pkgconfig(evas) >= 1.11.0
-BuildRequires:	pkgconfig(evas) >= 1.11.0
+BuildRequires:	pkgconfig(ephysics) >= {efl_version}
+BuildRequires:	pkgconfig(ethumb) >= {efl_version}
+BuildRequires:	pkgconfig(evas) >= {efl_version}
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
+Conflicts:       evas_generic_loaders = 1.13.1
 #Requires:	acpitool
-Requires:	pm-utils
-Requires:	elementary >= 1.11.0
-Requires:	efl >= 1.11.0
-Requires:	evas_generic_loaders >= 1.11.0
-#Suggests:	econnman
+Requires:	elementary >= {efl_version}
+Requires:	efl >= {efl_version}
+Suggests:	econnman
 
 Provides:	%{oname} = %{EVRD}
 
@@ -102,10 +102,10 @@ sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
-%configure2_5x \
-	--enable-files \
-	--disable-device-hal \
-	--enable-device-udev
+%configure \
+       --enable-files \
+       --disable-device-hal \
+       --enable-device-udev
 
 %make
 
