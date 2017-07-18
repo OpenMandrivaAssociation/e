@@ -27,27 +27,27 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-con) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-evas) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-file) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-input) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-input-evas) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-ipc) >= {efl_version}
-BuildRequires:	pkgconfig(ecore-x) >= {efl_version}
-BuildRequires:	pkgconfig(edje) >= {efl_version}
-BuildRequires:	pkgconfig(eet) >= {efl_version}
-BuildRequires:	pkgconfig(eeze) >= {efl_version}
-BuildRequires:	pkgconfig(efreet) >= {efl_version}
-BuildRequires:	pkgconfig(efreet-mime) >= {efl_version}
-BuildRequires:	pkgconfig(efreet-trash) >= {efl_version}
-BuildRequires:	pkgconfig(eina) >= {efl_version}
-BuildRequires:	pkgconfig(eio) >= {efl_version}
-BuildRequires:	pkgconfig(eldbus) >= {efl_version}
+BuildRequires:	pkgconfig(ecore) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-con) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-evas) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-file) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-input) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-input-evas) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-ipc) >= %{efl_version}
+BuildRequires:	pkgconfig(ecore-x) >= %{efl_version}
+BuildRequires:	pkgconfig(edje) >= %{efl_version}
+BuildRequires:	pkgconfig(eet) >= %{efl_version}
+BuildRequires:	pkgconfig(eeze) >= %{efl_version}
+BuildRequires:	pkgconfig(efreet) >= %{efl_version}
+BuildRequires:	pkgconfig(efreet-mime) >= %{efl_version}
+BuildRequires:	pkgconfig(efreet-trash) >= %{efl_version}
+BuildRequires:	pkgconfig(eina) >= %{efl_version}
+BuildRequires:	pkgconfig(eio) >= %{efl_version}
+BuildRequires:	pkgconfig(eldbus) >= %{efl_version}
 BuildRequires:	pkgconfig(elementary) >= 1.11.0
-BuildRequires:	pkgconfig(ephysics) >= {efl_version}
-BuildRequires:	pkgconfig(ethumb) >= {efl_version}
-BuildRequires:	pkgconfig(evas) >= {efl_version}
+BuildRequires:	pkgconfig(ephysics) >= %{efl_version}
+BuildRequires:	pkgconfig(ethumb) >= %{efl_version}
+BuildRequires:	pkgconfig(evas) >= %{efl_version}
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
@@ -55,7 +55,7 @@ BuildRequires:	pkgconfig(xcb-shape)
 %if %{without acpitool}
 Requires:	acpitool
 %endif
-Requires:	efl >= {efl_version}
+Requires:	efl >= %{efl_version}
 Suggests:	econnman
 Suggests:	econnman
 
