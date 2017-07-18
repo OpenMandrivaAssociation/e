@@ -1,3 +1,7 @@
+%ifarch %{armx}
+%bcond_without acpitool
+%endif
+
 %define use_ccache 1
 %define oname enlightenment
 
@@ -7,15 +11,14 @@
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.21.7
-Release:	3
+Version:	0.21.8
+Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.xz
 # When we have it:
 #Source1:	some-theme.edj.bz2
-#Patch0:		e17_sysactions.conf.patch
 BuildRequires:	doxygen
 BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
@@ -49,10 +52,11 @@ BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
-Conflicts:       evas_generic_loaders = 1.13.1
-#Requires:	acpitool
-Requires:	elementary >= {efl_version}
+%if %{without acpitool}
+Requires:	acpitool
+%endif
 Requires:	efl >= {efl_version}
+Suggests:	econnman
 Suggests:	econnman
 
 Provides:	%{oname} = %{EVRD}
