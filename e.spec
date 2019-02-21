@@ -5,13 +5,13 @@
 %define use_ccache 1
 %define oname enlightenment
 
-%define efl_version 1.19.1
+%define efl_version 1.21.1
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.21.8
+Version:	0.22.4
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
