@@ -20,7 +20,6 @@ Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}
 # When we have it:
 #Source1:	some-theme.edj.bz2
 BuildRequires:	doxygen
-BuildRequires:	multiarch-utils
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
@@ -62,7 +61,7 @@ Suggests:	econnman
 Provides:	%{oname} = %{EVRD}
 
 %description
-E19 is a next generation window manager 
+E21 is a next generation window manager 
 based on the Enlightenment Foundation Libraries (EFL)
 for composite enabled cards only
 
@@ -78,6 +77,8 @@ for composite enabled cards only
 %{_datadir}/applications/emixer.desktop
 %{_datadir}/applications/enlightenment_filemanager.desktop
 %{_datadir}/pixmaps/emixer.png
+%{_datadir}/applications/enlightenment_askpass.desktop
+%{_datadir}/pixmaps/enlightenment-askpass.png
 %{_libdir}/%{oname}
 %{_unitdir}/enlightenment.service
 
@@ -88,11 +89,10 @@ Summary:	Enlightenment library headers and development libraries
 Group:		Development/C
 
 %description devel
-E19 development headers and development libraries.
+E21 development headers and development libraries.
 
 %files devel
 %{_bindir}/%{oname}-config
-%{multiarch_bindir}/%{oname}-config
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/%{oname}
 
@@ -124,7 +124,7 @@ mv %{buildroot}/usr/lib/systemd/user/enlightenment.service %{buildroot}%{_unitdi
 
 #fake e-config
 touch %{buildroot}/%{_bindir}/%{oname}-config
-%multiarch_binaries %{buildroot}/%{_bindir}/%{oname}-config
+#%%multiarch_binaries %%{buildroot}/%%{_bindir}/%%{oname}-config
 
 #fix bad perms
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
@@ -134,7 +134,7 @@ chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 # display manager entry
 mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
 cat << EOF > %{buildroot}/%{_sysconfdir}/X11/wmsession.d/23E19
-NAME=E19
+NAME=E21
 ICON=
 EXEC=/usr/bin/enlightenment_start
 SCRIPT:
@@ -153,7 +153,7 @@ rm -f %{buildroot}%{_datadir}/xsessions/%{oname}.desktop
 
 # When we have our own theme
 # rename default theme, so we can replace it with our theme
-#mv %{buildroot}%{_datadir}/enlightenment/data/themes/default.edj %{buildroot}%{_datadir}/enlightenment/data/themes/original-default.edj
+#mv %%{buildroot}%%{_datadir}/enlightenment/data/themes/default.edj %%{buildroot}%%{_datadir}/enlightenment/data/themes/original-default.edj
 # add our theme as default
-#bzcat %{SOURCE1} > %{buildroot}%{_datadir}/enlightenment/data/themes/default.edj
+#bzcat %%{SOURCE1} > %%{buildroot}%%{_datadir}/enlightenment/data/themes/default.edj
 
