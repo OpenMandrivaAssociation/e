@@ -100,7 +100,7 @@ E21 development headers and development libraries.
 
 %prep
 %setup -qn %{oname}-%{version}
-#apply_patches
+#autopatch -p1
 
 sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
 
