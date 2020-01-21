@@ -19,6 +19,8 @@ Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.xz
 # When we have it:
 #Source1:	some-theme.edj.bz2
+BuildRequires:       meson
+BuildRequires:       ninja
 BuildRequires:	doxygen
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
@@ -100,21 +102,20 @@ E21 development headers and development libraries.
 
 %prep
 %setup -qn %{oname}-%{version}
-#autopatch -p1
-
-sed -i s,release_info=\"-release\ \$release\",release_info=\"\",g configure.ac
+%autopatch -p1
 
 %build
-#NOCONFIGURE=yes ./autogen.sh
-%configure \
-       --enable-files \
-       --disable-device-hal \
-       --enable-device-udev
 
-%make
+%meson \
+       -Dpam=true \
+       -Dmount-eeze=true \
+       -Dwl=true \
+       -Dsystemdunitdir=%{_userunitdir}
+
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 
 %find_lang %{oname}
 
