@@ -55,6 +55,8 @@ BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
 BuildRequires:       pkgconfig(wayland-protocols)
+BuildRequires:       pkgconfig(xorg-server)
+BuildRequires:       x11-server-xwayland
 %if %{without acpitool}
 Requires:	acpitool
 %endif
