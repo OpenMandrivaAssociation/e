@@ -21,10 +21,12 @@ Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}
 #Source1:	some-theme.edj.bz2
 BuildRequires:       meson
 BuildRequires:       ninja
+BuildRequires:       bluez
 BuildRequires:	doxygen
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
+BuildRequires:       rfkill
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
@@ -61,8 +63,7 @@ BuildRequires:       x11-server-xwayland
 Requires:	acpitool
 %endif
 Requires:	efl >= %{efl_version}
-Suggests:	econnman
-Suggests:	econnman
+Recommends:	econnman
 
 Provides:	%{oname} = %{EVRD}
 
