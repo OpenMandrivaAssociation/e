@@ -49,6 +49,7 @@ BuildRequires:	pkgconfig(elementary) >= 1.11.0
 BuildRequires:	pkgconfig(ephysics) >= %{efl_version}
 BuildRequires:	pkgconfig(ethumb) >= %{efl_version}
 BuildRequires:	pkgconfig(evas) >= %{efl_version}
+BuildRequires:       pkgconfig(efl-wl) >= %{efl_version}
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
