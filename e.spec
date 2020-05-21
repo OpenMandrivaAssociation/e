@@ -132,7 +132,7 @@ touch %{buildroot}/%{_bindir}/%{oname}-config
 #%%multiarch_binaries %%{buildroot}/%%{_bindir}/%%{oname}-config
 
 #fix bad perms
-chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
+#chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_sys
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
