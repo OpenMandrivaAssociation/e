@@ -27,6 +27,7 @@ BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
 BuildRequires:       rfkill
+BuildRequires:       efl >= %{efl_version}
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
