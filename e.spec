@@ -82,7 +82,7 @@ for composite enabled cards only
 %{_datadir}/%{oname}
 %{_datadir}/applications/emixer.desktop
 %{_datadir}/applications/enlightenment_filemanager.desktop
-%{_datadir}/pixmaps/emixer.png
+#{_datadir}/pixmaps/emixer.png
 %{_datadir}/applications/enlightenment_askpass.desktop
 %{_datadir}/pixmaps/enlightenment-askpass.png
 %{_libdir}/%{oname}
