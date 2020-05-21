@@ -76,6 +76,7 @@ for composite enabled cards only
 %config %{_sysconfdir}/X11/wmsession.d/23E19
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
 %{_sysconfdir}/xdg/menus/e-applications.menu
+%{_sysconfdir}/enlightenment/system.conf
 %{_bindir}/%{oname}
 %{_bindir}/%{oname}_*
 %{_bindir}/emixer
@@ -83,7 +84,17 @@ for composite enabled cards only
 %{_datadir}/applications/emixer.desktop
 %{_datadir}/applications/enlightenment_filemanager.desktop
 #{_datadir}/pixmaps/emixer.png
+%{_iconsdir}/hicolor/128x128/apps/emixer.png
+%{_iconsdir}/hicolor/512x512/apps/enlightenment.png
+%{_iconsdir}/hicolor/512x512/apps/enlightenment_badge-symbolic.png
+%{_iconsdir}/hicolor/512x512/places/enlightenment.png
+%{_iconsdir}/hicolor/scalable/apps/enlightenment.svg
+%{_iconsdir}/hicolor/512x512/places/enlightenment_badge-symbolic.png
+%{_iconsdir}/hicolor/scalable/apps/enlightenment_badge-symbolic.svg
+%{_iconsdir}/hicolor/scalable/places/enlightenment.svg
+%{_iconsdir}/hicolor/scalable/places/enlightenment_badge-symbolic.svg
 %{_datadir}/applications/enlightenment_askpass.desktop
+%{_datadir}/wayland-sessions/enlightenment.desktop
 %{_datadir}/pixmaps/enlightenment-askpass.png
 %{_libdir}/%{oname}
 %{_unitdir}/enlightenment.service
