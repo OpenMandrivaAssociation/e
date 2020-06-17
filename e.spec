@@ -5,13 +5,13 @@
 %define use_ccache 1
 %define oname enlightenment
 
-%define efl_version 1.23.3
+%define efl_version 1.24.3
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.23.1
+Version:	0.24.1
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -27,6 +27,7 @@ BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
 BuildRequires:       rfkill
+BuildRequires:       efl >= %{efl_version}
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
@@ -41,6 +42,7 @@ BuildRequires:	pkgconfig(ecore-x) >= %{efl_version}
 BuildRequires:	pkgconfig(edje) >= %{efl_version}
 BuildRequires:	pkgconfig(eet) >= %{efl_version}
 BuildRequires:	pkgconfig(eeze) >= %{efl_version}
+BuildRequires:       pkgconfig(efl-canvas-wl) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet-mime) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet-trash) >= %{efl_version}
@@ -48,10 +50,8 @@ BuildRequires:	pkgconfig(eina) >= %{efl_version}
 BuildRequires:	pkgconfig(eio) >= %{efl_version}
 BuildRequires:	pkgconfig(eldbus) >= %{efl_version}
 BuildRequires:	pkgconfig(elementary) >= 1.11.0
-BuildRequires:	pkgconfig(ephysics) >= %{efl_version}
 BuildRequires:	pkgconfig(ethumb) >= %{efl_version}
 BuildRequires:	pkgconfig(evas) >= %{efl_version}
-BuildRequires:       pkgconfig(efl-wl) >= %{efl_version}
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
@@ -77,14 +77,25 @@ for composite enabled cards only
 %config %{_sysconfdir}/X11/wmsession.d/23E19
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
 %{_sysconfdir}/xdg/menus/e-applications.menu
+%{_sysconfdir}/enlightenment/system.conf
 %{_bindir}/%{oname}
 %{_bindir}/%{oname}_*
 %{_bindir}/emixer
 %{_datadir}/%{oname}
 %{_datadir}/applications/emixer.desktop
 %{_datadir}/applications/enlightenment_filemanager.desktop
-%{_datadir}/pixmaps/emixer.png
+#{_datadir}/pixmaps/emixer.png
+%{_iconsdir}/hicolor/128x128/apps/emixer.png
+%{_iconsdir}/hicolor/512x512/apps/enlightenment.png
+%{_iconsdir}/hicolor/512x512/apps/enlightenment_badge-symbolic.png
+%{_iconsdir}/hicolor/512x512/places/enlightenment.png
+%{_iconsdir}/hicolor/scalable/apps/enlightenment.svg
+%{_iconsdir}/hicolor/512x512/places/enlightenment_badge-symbolic.png
+%{_iconsdir}/hicolor/scalable/apps/enlightenment_badge-symbolic.svg
+%{_iconsdir}/hicolor/scalable/places/enlightenment.svg
+%{_iconsdir}/hicolor/scalable/places/enlightenment_badge-symbolic.svg
 %{_datadir}/applications/enlightenment_askpass.desktop
+%{_datadir}/wayland-sessions/enlightenment.desktop
 %{_datadir}/pixmaps/enlightenment-askpass.png
 %{_libdir}/%{oname}
 %{_unitdir}/enlightenment.service
@@ -133,9 +144,9 @@ touch %{buildroot}/%{_bindir}/%{oname}-config
 #%%multiarch_binaries %%{buildroot}/%%{_bindir}/%%{oname}-config
 
 #fix bad perms
-chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
+#chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_sys
-chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
+#chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
 # display manager entry
 mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
