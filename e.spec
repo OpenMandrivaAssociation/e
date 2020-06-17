@@ -5,7 +5,7 @@
 %define use_ccache 1
 %define oname enlightenment
 
-%define efl_version 1.24.1
+%define efl_version 1.24.3
 
 %define _disable_ld_no_undefined 1
 
@@ -42,6 +42,7 @@ BuildRequires:	pkgconfig(ecore-x) >= %{efl_version}
 BuildRequires:	pkgconfig(edje) >= %{efl_version}
 BuildRequires:	pkgconfig(eet) >= %{efl_version}
 BuildRequires:	pkgconfig(eeze) >= %{efl_version}
+BuildRequires:       pkgconfig(efl-canvas-wl) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet-mime) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet-trash) >= %{efl_version}
