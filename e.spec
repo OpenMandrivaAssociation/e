@@ -74,7 +74,6 @@ for composite enabled cards only
 
 %files -f %{oname}.lang
 %doc AUTHORS README COPYING doc/*
-%config %{_sysconfdir}/X11/wmsession.d/23E19
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
 %{_sysconfdir}/xdg/menus/e-applications.menu
 %{_sysconfdir}/enlightenment/system.conf
