@@ -12,7 +12,7 @@
 Summary:	Enlightenment DR 19 window manager
 Name:		e
 Version:	0.24.2
-Release:	2
+Release:	3
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -96,6 +96,7 @@ for composite enabled cards only
 %{_iconsdir}/hicolor/scalable/places/enlightenment_badge-symbolic.svg
 %{_datadir}/applications/enlightenment_askpass.desktop
 %{_datadir}/wayland-sessions/enlightenment.desktop
+%{_datadir}/xsessions/%{oname}.desktop
 %{_datadir}/pixmaps/enlightenment-askpass.png
 %{_libdir}/%{oname}
 %{_unitdir}/enlightenment.service
@@ -148,29 +149,4 @@ touch %{buildroot}/%{_bindir}/%{oname}-config
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_sys
 #chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
 
-# display manager entry
-mkdir -p %{buildroot}/%{_sysconfdir}/X11/wmsession.d
-cat << EOF > %{buildroot}/%{_sysconfdir}/X11/wmsession.d/23E19
-NAME=E21
-ICON=
-EXEC=/usr/bin/enlightenment_start
-SCRIPT:
-exec /usr/bin/enlightenment_start
-EOF
-
-# We already have wmsession.d/23E19, so we can remove
-# xsessions/enlightenment.desktop. If we keep both files, we'll have both "E19"
-# and "Enlightenment" options in the Display Manager (GDM, Entrance), which is
-# not good.
-# Also, the wmsession.d file is used to generate
-# /etc/X11/dm/Sessions/23E19.desktop, which uses Xsession and consequently
-# consolekit. If you re-enable the sessions/enlightenment.desktop, please patch
-# it to use Exec="/usr/share/X11/xdm/Xsession E19". See bug #59123
-rm -f %{buildroot}%{_datadir}/xsessions/%{oname}.desktop
-
-# When we have our own theme
-# rename default theme, so we can replace it with our theme
-#mv %%{buildroot}%%{_datadir}/enlightenment/data/themes/default.edj %%{buildroot}%%{_datadir}/enlightenment/data/themes/original-default.edj
-# add our theme as default
-#bzcat %%{SOURCE1} > %%{buildroot}%%{_datadir}/enlightenment/data/themes/default.edj
 
