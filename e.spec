@@ -19,15 +19,15 @@ Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.xz
 # When we have it:
 #Source1:	some-theme.edj.bz2
-BuildRequires:       meson
-BuildRequires:       ninja
-BuildRequires:       bluez
+BuildRequires:	meson
+BuildRequires:	ninja
+BuildRequires:	bluez
 BuildRequires:	doxygen
 BuildRequires:	systemd-units
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
-BuildRequires:       rfkill
-BuildRequires:       efl >= %{efl_version}
+BuildRequires:	rfkill
+BuildRequires:	efl >= %{efl_version}
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
@@ -42,7 +42,7 @@ BuildRequires:	pkgconfig(ecore-x) >= %{efl_version}
 BuildRequires:	pkgconfig(edje) >= %{efl_version}
 BuildRequires:	pkgconfig(eet) >= %{efl_version}
 BuildRequires:	pkgconfig(eeze) >= %{efl_version}
-BuildRequires:       pkgconfig(efl-canvas-wl) >= %{efl_version}
+BuildRequires:	pkgconfig(efl-canvas-wl) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet-mime) >= %{efl_version}
 BuildRequires:	pkgconfig(efreet-trash) >= %{efl_version}
@@ -56,9 +56,9 @@ BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
-BuildRequires:       pkgconfig(wayland-protocols)
-BuildRequires:       pkgconfig(xorg-server)
-BuildRequires:       x11-server-xwayland
+BuildRequires:	pkgconfig(wayland-protocols)
+BuildRequires:	pkgconfig(xorg-server)
+BuildRequires:	x11-server-xwayland
 %if %{without acpitool}
 Requires:	acpitool
 %endif
@@ -147,5 +147,3 @@ touch %{buildroot}/%{_bindir}/%{oname}-config
 #chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/modules/cpufreq/linux-*/freqset
 chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_sys
 #chmod a=rx,u+xws %{buildroot}%{_libdir}/%{oname}/utils/enlightenment_backlight
-
-
