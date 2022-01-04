@@ -5,14 +5,14 @@
 %define use_ccache 1
 %define oname enlightenment
 
-%define efl_version 1.25.1
+%define efl_version 1.26.1
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.24.2
-Release:	3
+Version:	0.25.1
+Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -31,27 +31,7 @@ BuildRequires:	efl >= %{efl_version}
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
-BuildRequires:	pkgconfig(ecore) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-con) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-evas) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-file) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-input) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-input-evas) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-ipc) >= %{efl_version}
-BuildRequires:	pkgconfig(ecore-x) >= %{efl_version}
-BuildRequires:	pkgconfig(edje) >= %{efl_version}
-BuildRequires:	pkgconfig(eet) >= %{efl_version}
-BuildRequires:	pkgconfig(eeze) >= %{efl_version}
-BuildRequires:	pkgconfig(efl-canvas-wl) >= %{efl_version}
-BuildRequires:	pkgconfig(efreet) >= %{efl_version}
-BuildRequires:	pkgconfig(efreet-mime) >= %{efl_version}
-BuildRequires:	pkgconfig(efreet-trash) >= %{efl_version}
-BuildRequires:	pkgconfig(eina) >= %{efl_version}
-BuildRequires:	pkgconfig(eio) >= %{efl_version}
-BuildRequires:	pkgconfig(eldbus) >= %{efl_version}
-BuildRequires:	pkgconfig(elementary) >= 1.11.0
-BuildRequires:	pkgconfig(ethumb) >= %{efl_version}
-BuildRequires:	pkgconfig(evas) >= %{efl_version}
+BuildRequires:       pkgconfig(efl) >= %{efl_version}
 BuildRequires:	pkgconfig(exchange)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
