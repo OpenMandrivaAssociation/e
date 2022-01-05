@@ -64,6 +64,8 @@ for composite enabled cards only
 %{_datadir}/%{oname}
 %{_datadir}/applications/emixer.desktop
 %{_datadir}/applications/enlightenment_filemanager.desktop
+%{_datadir}/applications/enlightenment_fprint.desktop
+%{_datadir}/applications/enlightenment_paledit.desktop
 #{_datadir}/pixmaps/emixer.png
 %{_iconsdir}/hicolor/128x128/apps/emixer.png
 %{_iconsdir}/hicolor/512x512/apps/enlightenment.png
@@ -74,6 +76,8 @@ for composite enabled cards only
 %{_iconsdir}/hicolor/scalable/apps/enlightenment_badge-symbolic.svg
 %{_iconsdir}/hicolor/scalable/places/enlightenment.svg
 %{_iconsdir}/hicolor/scalable/places/enlightenment_badge-symbolic.svg
+%{_iconsdir}/hicolor/*x*/apps/enlightenment_fprint.png
+%{_iconsdir}/hicolor/*x*/apps/enlightenment_paledit.png
 %{_datadir}/applications/enlightenment_askpass.desktop
 %{_datadir}/wayland-sessions/enlightenment.desktop
 %{_datadir}/xsessions/%{oname}.desktop
@@ -102,6 +106,9 @@ E21 development headers and development libraries.
 %autopatch -p1
 
 %build
+# As of e 0.25.1 and Clang 13.0.0 build error appears:
+../src/bin/e_color.c:14:9: error: type '_Float32' (aka 'float') in generic association compatible with previously specified type 'float' if (!EINA_FLT_NONZERO(ec->v))
+# As workaround switch to GCC for now.
 export CC=gcc
 export CXX=g++
 %meson \
