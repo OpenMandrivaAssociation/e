@@ -102,7 +102,8 @@ E21 development headers and development libraries.
 %autopatch -p1
 
 %build
-
+export CC=gcc
+export CXX=g++
 %meson \
        -Dpam=true \
        -Dmount-eeze=true \
