@@ -107,7 +107,7 @@ E21 development headers and development libraries.
 
 %build
 # As of e 0.25.1 and Clang 13.0.0 build error appears:
-../src/bin/e_color.c:14:9: error: type '_Float32' (aka 'float') in generic association compatible with previously specified type 'float' if (!EINA_FLT_NONZERO(ec->v))
+#../src/bin/e_color.c:14:9: error: type '_Float32' (aka 'float') in generic association compatible with previously specified type 'float' if (!EINA_FLT_NONZERO(ec->v))
 # As workaround switch to GCC for now.
 export CC=gcc
 export CXX=g++
