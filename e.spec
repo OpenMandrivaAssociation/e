@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(bluez)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:       pkgconfig(efl) >= %{efl_version}
 BuildRequires:	pkgconfig(exchange)
+BuildRequires:       pkgconfig(libexif)
 BuildRequires:	pkgconfig(xcb)
 BuildRequires:	pkgconfig(xcb-keysyms)
 BuildRequires:	pkgconfig(xcb-shape)
