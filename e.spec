@@ -5,13 +5,13 @@
 %define use_ccache 1
 %define oname enlightenment
 
-%define efl_version 1.26.1
+%define efl_version 1.26.2
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.25.1
+Version:	0.25.2
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -47,6 +47,8 @@ Requires:	efl >= %{efl_version}
 Recommends:	econnman
 
 Provides:	%{oname} = %{EVRD}
+Provides:     task-%{oname}= %{EVRD}
+Provides:     task-e = %{EVRD}
 
 %description
 E21 is a next generation window manager 
