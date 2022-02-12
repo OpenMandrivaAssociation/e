@@ -11,7 +11,7 @@
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.25.2
+Version:	0.25.3
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -44,7 +44,20 @@ BuildRequires:	x11-server-xwayland
 Requires:	acpitool
 %endif
 Requires:	efl >= %{efl_version}
+
+# In future, let's create task-e package and pull as hard dependency all listed below packages.
 Recommends:	econnman
+Recommends:   terminology
+Recommends:   rage
+Recommends:   evisum
+Recommends:   espionage
+Recommends:   epour
+Recommends:   ephoto
+Recommends:   enventor
+Recommends:   empc
+Recommends:   eflete
+Recommends:   edi
+Recommends:   ecrire
 
 Provides:	%{oname} = %{EVRD}
 Provides:     task-%{oname}= %{EVRD}
