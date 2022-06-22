@@ -12,7 +12,7 @@
 Summary:	Enlightenment DR 19 window manager
 Name:		e
 Version:	0.25.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
