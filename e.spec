@@ -69,7 +69,7 @@ based on the Enlightenment Foundation Libraries (EFL)
 for composite enabled cards only
 
 %files -f %{oname}.lang
-%doc AUTHORS README COPYING doc/*
+%doc AUTHORS COPYING doc/*
 %config(noreplace) %{_sysconfdir}/%{oname}/sysactions.conf
 %{_sysconfdir}/xdg/menus/e-applications.menu
 %{_sysconfdir}/enlightenment/system.conf
@@ -129,7 +129,7 @@ export CXX=g++
 %meson \
        -Dpam=true \
        -Dmount-eeze=true \
-       -Dwl=false \
+       -Dwl=true \
        -Dconnman=false \
        -Dsystemdunitdir=%{_userunitdir}
 
