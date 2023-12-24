@@ -11,7 +11,7 @@
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.25.4
+Version:	0.26.0
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -129,7 +129,8 @@ export CXX=g++
 %meson \
        -Dpam=true \
        -Dmount-eeze=true \
-       -Dwl=true \
+       -Dwl=false \
+       -Dconnman=false \
        -Dsystemdunitdir=%{_userunitdir}
 
 %meson_build
