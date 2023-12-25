@@ -132,7 +132,8 @@ export CXX=g++
        -Dwl=false \
        -Dconnman=false \
        -Dsystemdunitdir=%{_userunitdir}
-
+### FIXME ### wl=true enable wayland session but it is more unstable than Plasma6 on Wayland. So I can't recommend it even to my worst enemy. Lets disable it for now.
+### FIXME ### if wayland session is enabled then X11 session is gone. Need to find way to enable both at same time.
 %meson_build
 
 %install
