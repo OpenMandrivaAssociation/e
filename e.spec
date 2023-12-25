@@ -12,7 +12,7 @@
 Summary:	Enlightenment DR 19 window manager
 Name:		e
 Version:	0.26.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -94,7 +94,7 @@ for composite enabled cards only
 %{_iconsdir}/hicolor/*x*/apps/enlightenment_fprint.png
 %{_iconsdir}/hicolor/*x*/apps/enlightenment_paledit.png
 %{_datadir}/applications/enlightenment_askpass.desktop
-%{_datadir}/wayland-sessions/enlightenment.desktop
+#{_datadir}/wayland-sessions/enlightenment.desktop
 %{_datadir}/xsessions/%{oname}.desktop
 %{_datadir}/pixmaps/enlightenment-askpass.png
 %{_libdir}/%{oname}
@@ -129,7 +129,7 @@ export CXX=g++
 %meson \
        -Dpam=true \
        -Dmount-eeze=true \
-       -Dwl=true \
+       -Dwl=false \
        -Dconnman=false \
        -Dsystemdunitdir=%{_userunitdir}
 
