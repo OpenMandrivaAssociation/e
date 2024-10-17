@@ -15,7 +15,7 @@ Version:	0.26.0
 Release:	2
 License:	BSD
 Group:		Graphical desktop/Enlightenment
-Url:		http://www.enlightenment.org/
+Url:		https://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/rel/apps/%{oname}/%{oname}-%{version}.tar.xz
 # When we have it:
 #Source1:	some-theme.edj.bz2
