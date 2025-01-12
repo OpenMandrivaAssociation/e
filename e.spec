@@ -5,14 +5,14 @@
 %define use_ccache 1
 %define oname enlightenment
 
-%define efl_version 1.26.2
+%define efl_version 1.28.0
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Enlightenment DR 19 window manager
 Name:		e
-Version:	0.26.0
-Release:	2
+Version:	0.27.0
+Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		https://www.enlightenment.org/
@@ -23,7 +23,7 @@ BuildRequires:	meson
 BuildRequires:	ninja
 BuildRequires:	bluez
 BuildRequires:	doxygen
-BuildRequires:	systemd-units
+BuildRequires:	systemd
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
 BuildRequires:	rfkill
