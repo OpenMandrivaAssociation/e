@@ -23,7 +23,7 @@ BuildRequires:	meson
 BuildRequires:	ninja
 BuildRequires:	bluez
 BuildRequires:	doxygen
-BuildRequires:	systemd-units
+BuildRequires:	systemd
 BuildRequires:	gettext-devel
 BuildRequires:	pam-devel
 BuildRequires:	rfkill
